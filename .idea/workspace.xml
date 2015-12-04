@@ -13,7 +13,11 @@
     <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/quizfloor/quizfloor/openingLogo.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1eb101db-8bb3-4fa5-a44b-09648b08f118" name="Default" comment="" />
+    <list default="true" id="1eb101db-8bb3-4fa5-a44b-09648b08f118" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\keyul\Downloads\QuizFloor\QF" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="QuizFloor.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -137,7 +141,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/QF" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -1963,12 +1967,12 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="LGD415d1a696ff" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22_x86" />
     <property name="SearchEverywhereHistoryKey" value="properties&#9;FILE&#9;file://C:/Users/keyul/AppData/Local/Android/sdk/sources/android-22/java/util/Properties.java&#10;prefer&#9;PSI&#9;JAVA://android.preference.Preference&#10;proper&#9;PSI&#9;JAVA://java.util.Properties" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="183" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="1" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NavigationDrawer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
@@ -2187,7 +2191,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1934" height="1042" extended-state="0" />
+    <frame x="-11" y="-11" width="1934" height="1042" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
