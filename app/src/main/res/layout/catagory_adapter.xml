@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:text="GRE"
+        android:id="@+id/txtCatName"
+        android:gravity="center"
+        android:clickable="false"
+        android:focusable="false"
+
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:typeface="serif"
+        android:textColor="#fff"
+        android:background="#B3ff5252"
+        android:padding="16dp"
+
+    />
+</LinearLayout>

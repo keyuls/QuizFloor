@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    android:background="#ffffff">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correct"
+        android:id="@+id/textView7"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="53dp"
+        android:textColor="#727272"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Incorrect"
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/textView7"
+        android:layout_alignStart="@+id/textView7"
+        android:layout_marginTop="46dp"
+        android:textColor="#727272"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Score"
+        android:id="@+id/textView9"
+        android:layout_marginTop="26dp"
+        android:textColor="#727272"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:layout_below="@+id/textView8"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/correctVal"
+        android:layout_alignTop="@+id/textView7"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:textColor="#4CAF50"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/incorrectVal"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_alignLeft="@+id/correctVal"
+        android:layout_alignStart="@+id/correctVal"
+        android:textColor="#B71C1C"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="50"
+        android:id="@+id/percentVal"
+        android:textColor="#000000"
+        android:textSize="@dimen/abc_text_size_display_1_material"
+        android:layout_below="@+id/textView9"
+        android:layout_toLeftOf="@+id/correctVal"
+        android:layout_toStartOf="@+id/correctVal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Challenge Friend"
+        android:id="@+id/PickupFriendbutton"
+        android:onClick="sendChallenge"
+        android:background="#FF8A80"
+        android:textSize="@dimen/abc_text_size_button_material"
+        android:layout_above="@+id/btnPlayAgain"
+        android:layout_marginBottom="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Challenge Score"
+        android:id="@+id/txtChalScore"
+        android:visibility="invisible"
+        android:textSize="@dimen/abc_text_size_headline_material"
+
+        android:layout_alignTop="@+id/textView9"
+        android:layout_alignLeft="@+id/incorrectVal"
+        android:layout_alignStart="@+id/incorrectVal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="100"
+        android:id="@+id/challengeScoreVal"
+        android:textColor="#000000"
+        android:visibility="invisible"
+        android:textSize="@dimen/abc_text_size_display_1_material"
+        android:layout_below="@+id/txtChalScore"
+        android:layout_toRightOf="@+id/txtDecesion"
+        android:layout_toEndOf="@+id/txtDecesion" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Win"
+        android:id="@+id/txtDecesion"
+        android:textColor="#000000"
+        android:visibility="invisible"
+        android:textSize="@dimen/abc_text_size_display_2_material"
+        android:layout_below="@+id/percentVal"
+        android:layout_toRightOf="@+id/percentVal"
+        android:layout_toEndOf="@+id/percentVal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play New Game"
+        android:id="@+id/btnPlayAgain"
+        android:background="#FF8A80"
+        android:onClick="playAgain"
+        android:textSize="@dimen/abc_text_size_button_material"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="31dp" />
+</RelativeLayout>

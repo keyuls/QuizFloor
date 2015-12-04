@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <ImageView
+        android:id="@+id/inviteListItemProfilePic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/profile_holder_invert"
+        android:clickable="false"
+        android:focusable="false"
+        />
+
+
+    <TextView
+        android:id="@+id/inviteListItemName"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:textColor="#000000"
+        android:layout_marginTop="17dp"
+        android:clickable="false"
+        android:focusable="false"
+        />
+
+   <!-- <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/FriendcheckBox"
+        android:paddingTop="35dp"
+        android:button="@drawable/abc_btn_check_material"
+        android:clickable="false"
+        android:focusable="false"
+
+        /> -->
+
+    <ImageView
+        android:id="@+id/inviteListItemCheckbox"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_check_box_outline_blank_black_24dp"
+        android:layout_marginTop="15dp"
+
+        />
+
+
+    <!-- <ImageView
+        android:id="@+id/inviteListItemCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingLeft="58dp"
+        /> -->
+
+</LinearLayout>
