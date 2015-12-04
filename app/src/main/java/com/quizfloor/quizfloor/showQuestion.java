@@ -170,6 +170,7 @@ public class showQuestion extends Activity {
             op2.setBackgroundColor(Color.parseColor("#FF8A80"));
             op3.setBackgroundColor(Color.parseColor("#FF8A80"));
             op4.setBackgroundColor(Color.parseColor("#FF8A80"));
+            /*New change for test git*/
 
           /*  Log.d("que" + i, question);
             Log.d("que1", option1);
