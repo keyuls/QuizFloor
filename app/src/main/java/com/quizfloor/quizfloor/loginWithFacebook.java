@@ -2,6 +2,9 @@ package com.quizfloor.quizfloor;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -9,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -51,6 +55,9 @@ import org.json.JSONObject;
 
 import java.io.Console;
 import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +115,9 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
         if (BuildConfig.DEBUG) {
             FacebookSdk.setIsDebugEnabled(true);
             FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
@@ -136,6 +146,25 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     public void onError(FacebookException e) {
                     }
                 });
+
+
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.quizfloor.quizfloor",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("YourKeyHash :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.d("YourKeyHash: ", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
+
     }
 
 
