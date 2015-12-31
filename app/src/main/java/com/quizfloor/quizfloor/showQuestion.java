@@ -273,13 +273,10 @@ public class showQuestion extends Activity {
 
     /*Comapre Score with opponent*/
     private void compareScore() {
-
-
        int challengerScore = Integer.parseInt(((quizFloorApplication)getApplicationContext()).getChallengerScore());
         if(percent<challengerScore)
         {
             decesionVal.setText("You Lose");
-
         }
         else
         {
