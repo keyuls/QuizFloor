@@ -53,6 +53,7 @@ public class showQuestion extends Activity {
     GameRequestDialog requestDialog;
     CallbackManager callbackManager;
     HashMap<String, Object> params = new HashMap<String, Object>();
+    HashMap<String,Object> delCompChal = new HashMap<String, Object>();
     int percent;
 
     public String getPercentValue() {
@@ -126,8 +127,6 @@ public class showQuestion extends Activity {
 
                     Log.d("Challenge Sent", updation);
                 }
-
-
             }
         });
     }
@@ -242,7 +241,7 @@ public class showQuestion extends Activity {
 
     }
 
-
+    /*calculate Score and display */
     public void showResult(int cor,int incor)
     {
         setContentView(R.layout.result);
@@ -272,6 +271,7 @@ public class showQuestion extends Activity {
         }
     }
 
+    /*Comapre Score with opponent*/
     private void compareScore() {
 
 
@@ -293,10 +293,19 @@ public class showQuestion extends Activity {
         // sendNotification()
     }
 
+    /*Delete challenges after play by other user */
     private void deleteChallenge() {
 
         String challengeObjId = ((quizFloorApplication)getApplicationContext()).getChallengeObjId();
-        ParseObject.createWithoutData("Challenge", challengeObjId).deleteEventually();
+            delCompChal.put("objId",challengeObjId);
+            ParseCloud.callFunctionInBackground("DeletePlayedChallenge", delCompChal, new FunctionCallback<List<ParseObject>>() {
+                @Override
+                public void done(List<ParseObject> getDeletePlayedChallengeObj, com.parse.ParseException e) {
+                    if(e==null) {
+                        Log.d("challenge deleted", String.valueOf(getDeletePlayedChallengeObj.size()));
+                    }
+                }
+            });
     }
 
     public void playAgain(View view)
@@ -304,7 +313,6 @@ public class showQuestion extends Activity {
         deleteCurrentUser();
         Intent qintent = new Intent(this, categoryListActivity.class);
         startActivity(qintent);
-
     }
 
     private void deleteCurrentUser() {

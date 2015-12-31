@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:textSize="@dimen/abc_text_size_display_1_material"
+        android:textSize="24sp"
         android:id="@+id/questionText"
         android:textStyle="bold"/>
 
