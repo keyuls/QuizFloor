@@ -65,7 +65,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Option 4"
         android:id="@+id/op4Button"
         android:layout_below="@+id/op3Button"
         android:layout_alignLeft="@+id/op3Button"
@@ -75,6 +75,25 @@
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
+        android:layout_marginBottom="5dp"
         android:textSize="@dimen/abc_text_size_medium_material"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Option 5"
+        android:id="@+id/op5Button"
+        android:layout_below="@+id/op4Button"
+        android:layout_alignLeft="@+id/op4Button"
+        android:layout_alignStart="@+id/op4Button"
+        android:background="#FF8A80"
+        android:minWidth="200dp"
+        android:onClick="buttonPress"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="@dimen/abc_text_size_medium_material"/>
+
+
 
 </RelativeLayout>

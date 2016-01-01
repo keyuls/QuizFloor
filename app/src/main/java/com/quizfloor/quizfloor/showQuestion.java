@@ -43,6 +43,7 @@ public class showQuestion extends Activity {
     Button op2;
     Button op3;
     Button op4;
+    Button op5;
     String answer;
     int correct=0;
     int incorrect =0;
@@ -73,6 +74,7 @@ public class showQuestion extends Activity {
         op2 = (Button)findViewById(R.id.op2Button);
         op3 = (Button)findViewById(R.id.op3Button);
         op4 = (Button)findViewById(R.id.op4Button);
+        op5 = (Button)findViewById(R.id.op5Button);
 
 
 
@@ -83,6 +85,7 @@ public class showQuestion extends Activity {
             public void onSuccess(GameRequestDialog.Result result) {
                 ((quizFloorApplication) getApplicationContext()).setReciverId(result.getRequestRecipients().get(0));
                 updateDb();
+                redirectToCat(); //redirect to catagory
             }
 
             public void onCancel() {
@@ -115,6 +118,13 @@ public class showQuestion extends Activity {
         }
     }
 
+    //redirect to catagory
+    private void redirectToCat() {
+        Intent cintent = new Intent(this, categoryListActivity.class);
+        startActivity(cintent);
+
+    }
+
     public void updateDb(){
 
         params.put("recieverId", ((quizFloorApplication) getApplicationContext()).getReciverId());
@@ -122,9 +132,7 @@ public class showQuestion extends Activity {
         ParseCloud.callFunctionInBackground("updateChallenge", params, new FunctionCallback<String>() {
             @Override
             public void done(String updation, ParseException e) {
-
                 if (e == null) {
-
                     Log.d("Challenge Sent", updation);
                 }
             }
@@ -139,6 +147,7 @@ public class showQuestion extends Activity {
             String option2 = (String) scoreList.get(i).getString("Option2");
             String option3 = (String) scoreList.get(i).getString("Option3");
             String option4 = (String) scoreList.get(i).getString("Option4");
+            String option5 = (String) scoreList.get(i).getString("Option5");
                     answer =(String)  scoreList.get(i).getString("Answer");
 
             questionText.setText(question);
@@ -163,12 +172,21 @@ public class showQuestion extends Activity {
                 op4.setVisibility(View.VISIBLE);
                 op4.setText(option4);
             }
+            if(option5.equals("-"))
+            {
+                op5.setVisibility(View.GONE);
+            }
+            else {
+                op5.setVisibility(View.VISIBLE);
+                op5.setText(option5);
+            }
 
 
             op1.setBackgroundColor(Color.parseColor("#FF8A80"));
             op2.setBackgroundColor(Color.parseColor("#FF8A80"));
             op3.setBackgroundColor(Color.parseColor("#FF8A80"));
             op4.setBackgroundColor(Color.parseColor("#FF8A80"));
+            op5.setBackgroundColor(Color.parseColor("#FF8A80"));
             /*New change for test git*/
 
           /*  Log.d("que" + i, question);
@@ -204,6 +222,10 @@ public class showQuestion extends Activity {
                 String Option4 = "Option4";
                 verifyAnswer(Option4,v);
                 break;
+            case R.id.op5Button:
+                String Option5 = "Option5";
+                verifyAnswer(Option5,v);
+                break;
         }
     }
 
@@ -237,7 +259,7 @@ public class showQuestion extends Activity {
             public void run() {
                 DisplayQue(((quizFloorApplication)getApplicationContext()).getQueList());
             }
-        }, 2000);
+        }, 2500);
 
     }
 
@@ -329,7 +351,7 @@ public class showQuestion extends Activity {
     }
 
     public void sendChallenge(View view) {
-        GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build();
+        GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build(); /*.setActionType(GameRequestContent.ActionType.SEND)*/
         requestDialog.show(content);
     }
     @Override
