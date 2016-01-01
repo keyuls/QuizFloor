@@ -8,14 +8,15 @@
 
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:id="@+id/challengesListView"
         android:background="#ffffff"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/skipButton"
-        android:layout_marginBottom="3dp"/>
+        android:layout_marginBottom="3dp"
+        android:dividerHeight="10.0sp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
