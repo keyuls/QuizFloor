@@ -182,11 +182,11 @@ public class showQuestion extends Activity {
             }
 
 
-            op1.setBackgroundColor(Color.parseColor("#FF8A80"));
-            op2.setBackgroundColor(Color.parseColor("#FF8A80"));
-            op3.setBackgroundColor(Color.parseColor("#FF8A80"));
-            op4.setBackgroundColor(Color.parseColor("#FF8A80"));
-            op5.setBackgroundColor(Color.parseColor("#FF8A80"));
+            op1.setBackgroundColor(Color.parseColor("#FFA000"));
+            op2.setBackgroundColor(Color.parseColor("#FFA000"));
+            op3.setBackgroundColor(Color.parseColor("#FFA000"));
+            op4.setBackgroundColor(Color.parseColor("#FFA000"));
+            op5.setBackgroundColor(Color.parseColor("#FFA000"));
             /*New change for test git*/
 
           /*  Log.d("que" + i, question);

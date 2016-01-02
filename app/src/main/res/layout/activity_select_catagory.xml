@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Exam Topics"
         android:id="@+id/startQuiz"
-        android:background="#FF8A80"
+        android:background="#8D6E63"
         android:onClick="startLoading"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

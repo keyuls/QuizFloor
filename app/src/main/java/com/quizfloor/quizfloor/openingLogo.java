@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
-import com.parse.ParseCrashReporting;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -69,11 +68,11 @@ public class openingLogo extends ActionBarActivity {
         }
 
         // Enable Crash Reporting
-        ParseCrashReporting.enable(this);
+     //   ParseCrashReporting.enable(this);
 
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "64ywb2cyyKZvFCkv1nSIYosbbPQTnM2EfU3AWPWi", "6MCsFJw6TpaN3EoD3nYgdshBD7Jfn9u7P6mM5KBw");
+        Parse.initialize(this);
 
     }
 

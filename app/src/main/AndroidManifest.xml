@@ -6,8 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -100,8 +98,15 @@
         <activity
             android:name=".ShowSubCatagory"
             android:label="@string/title_activity_show_sub_catagory"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+           android:parentActivityName="com.quizfloor.quizfloor.categoryListActivity" >
+
+            <!--   Parent activity meta-data to support 4.0 and lower-->
+              <meta-data
+                  android:name="android.support.PARENT_ACTIVITY"
+                  android:value="com.quizfloor.quizfloor.categoryListActivity" />
         </activity>
+
         <activity
             android:name=".subCatagoryListAdapter"
             android:label="@string/title_activity_sub_catagory_list_adapter" >
@@ -129,6 +134,13 @@
             </intent-filter>
         </receiver>
 
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="64ywb2cyyKZvFCkv1nSIYosbbPQTnM2EfU3AWPWi" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="6MCsFJw6TpaN3EoD3nYgdshBD7Jfn9u7P6mM5KBw" />
     </application>
 
 </manifest>

@@ -11,12 +11,13 @@
         android:gravity="center"
         android:clickable="false"
         android:focusable="false"
-
         android:textSize="@dimen/abc_text_size_headline_material"
         android:typeface="serif"
-        android:textColor="#fff"
-        android:background="#B3ff5252"
+        android:textColor="#FFA000"
+        android:background="#fff"
         android:padding="16dp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
 
     />
 </LinearLayout>

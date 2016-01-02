@@ -5,13 +5,13 @@
         <!-- Customize your theme here. -->
 
         <!--   your app branding color for the app bar -->
-        <item name="colorPrimary">#9C27B0</item>
+        <item name="colorPrimary">#795548</item>
         <!--  darker variant for the status bar and contextual app bars -->
-        <item name="colorPrimaryDark">#7B1FA2</item>
+        <item name="colorPrimaryDark">#5D4037</item>
         <!--   theme UI controls like checkboxes and text fields -->
-        <item name="colorAccent">#FF8A80</item>
+        <item name="colorAccent">#FFA000</item>
 
-        <item name= "android:textColorPrimary">#FFFFFF</item>
+        <item name= "android:textColorPrimary">#fff</item>
 
 
 

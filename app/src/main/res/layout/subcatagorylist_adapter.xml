@@ -10,12 +10,14 @@
         android:layout_height="85dp"
         android:text="JAVA"
         android:id="@+id/txtSubCatName"
-        android:textSize="@dimen/abc_text_size_title_material"
-        android:textColor="#ccff5252"
+        android:textSize="24sp"
+        android:textColor="#FFA000"
         android:gravity="center"
         android:background="#fff"
         android:padding="16dp"
         android:typeface="monospace"
+
+        android:fontFamily="sans-serif-medium"
       />
 
 </RelativeLayout>

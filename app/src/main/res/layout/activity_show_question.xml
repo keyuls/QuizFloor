@@ -21,16 +21,17 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Option1"
         android:id="@+id/op1Button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="#FF8A80"
+        android:background="#FFA000"
         android:layout_marginBottom="5dp"
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:textSize="@dimen/abc_text_size_medium_material"/>
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="#fff"/>
 
     <Button
         android:layout_width="match_parent"
@@ -39,13 +40,14 @@
         android:id="@+id/op2Button"
         android:layout_below="@+id/op1Button"
         android:layout_centerHorizontal="true"
-        android:background="#FF8A80"
+        android:background="#FFA000"
         android:minWidth="200dp"
         android:layout_marginBottom="5dp"
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:textSize="@dimen/abc_text_size_medium_material"/>
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="#fff"/>
 
     <Button
         android:layout_width="match_parent"
@@ -54,13 +56,14 @@
         android:id="@+id/op3Button"
         android:layout_below="@+id/op2Button"
         android:layout_centerHorizontal="true"
-        android:background="#FF8A80"
+        android:background="#FFA000"
         android:minWidth="200dp"
         android:layout_marginBottom="5dp"
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
-        android:textSize="@dimen/abc_text_size_medium_material"/>
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="#fff"/>
 
     <Button
         android:layout_width="match_parent"
@@ -70,13 +73,16 @@
         android:layout_below="@+id/op3Button"
         android:layout_alignLeft="@+id/op3Button"
         android:layout_alignStart="@+id/op3Button"
-        android:background="#FF8A80"
+        android:background="#FFA000"
         android:minWidth="200dp"
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="5dp"
-        android:textSize="@dimen/abc_text_size_medium_material"/>
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="#fff"/>
+
+
 
     <Button
         android:layout_width="match_parent"
@@ -86,13 +92,14 @@
         android:layout_below="@+id/op4Button"
         android:layout_alignLeft="@+id/op4Button"
         android:layout_alignStart="@+id/op4Button"
-        android:background="#FF8A80"
+        android:background="#FFA000"
         android:minWidth="200dp"
         android:onClick="buttonPress"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginBottom="5dp"
-        android:textSize="@dimen/abc_text_size_medium_material"/>
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textColor="#fff"/>
 
 
 

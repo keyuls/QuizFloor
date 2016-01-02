@@ -1,6 +1,9 @@
 package com.quizfloor.quizfloor;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,11 +26,16 @@ public class ShowSubCatagory extends ActionBarActivity {
     ListView subCatListView;
     List<ParseObject> subCatObj;
     HashMap<String,Object> getSubCat = new HashMap<String, Object>();
+    ActionBar actionBar;
 
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_show_sub_catagory);
+
         setTitle(((quizFloorApplication) getApplicationContext()).getSelectedCatagory());
         subCatListView = (ListView)findViewById(R.id.subCatListView);
 
