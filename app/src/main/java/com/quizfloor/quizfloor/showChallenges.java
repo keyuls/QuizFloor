@@ -32,6 +32,7 @@ public class showChallenges extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_challenges);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Recent Challenges");
         challengesListView = (ListView)findViewById(R.id.challengesListView);
 

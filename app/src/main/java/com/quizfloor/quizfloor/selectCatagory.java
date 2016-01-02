@@ -47,6 +47,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_nav);
         setTitle("Welcome");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent =  getIntent();
          name = intent.getStringExtra("fb");
          id = intent.getStringExtra("id");

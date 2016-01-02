@@ -14,22 +14,20 @@
        android:id="@+id/userImage"
        android:layout_width="75dp"
        android:layout_height="75dp"
-       android:layout_marginLeft="0dp"
-       android:layout_marginTop="18dp"
-       />
+       android:layout_alignParentTop="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="86dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Name"
         android:id="@+id/userName"
-        android:layout_alignTop="@+id/userImage"
-        android:layout_centerHorizontal="true"
         android:textSize="@dimen/abc_text_size_display_2_material"
-        android:paddingLeft="45dp"
+        android:paddingLeft="4dp"
         android:textColor="#000"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="20dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
    <!--- <Button
         android:layout_width="200dp"
@@ -45,17 +43,17 @@
         android:layout_centerHorizontal="true" /> -->
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Exam Topics"
         android:id="@+id/startQuiz"
         android:background="#8D6E63"
         android:onClick="startLoading"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textSize="@dimen/abc_text_size_medium_material"
         android:padding="16dp"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="114dp" />
 
 
 

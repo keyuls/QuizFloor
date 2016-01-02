@@ -29,6 +29,7 @@ public class submitQuestion extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit_question);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         addItemsOnSpinner1();
         addItemsOnSpinner2();
         question=(EditText)(findViewById(R.id.QuestionSubmitVal));

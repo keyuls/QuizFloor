@@ -75,12 +75,22 @@
         <activity
             android:name=".submitQuestion"
             android:label="@string/title_activity_submit_question"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.quizfloor.quizfloor.loginWithFacebook" >
+            <!--   Parent activity meta-data to support 4.0 and lower-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quizfloor.quizfloor.loginWithFacebook" />
         </activity>
         <activity
             android:name=".categoryListActivity"
             android:label="@string/title_activity_category_list"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.quizfloor.quizfloor.loginWithFacebook" >
+            <!--   Parent activity meta-data to support 4.0 and lower-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quizfloor.quizfloor.loginWithFacebook" />
         </activity>
         <activity
             android:name=".showChallengeFriend"
@@ -93,7 +103,12 @@
         <activity
             android:name=".showChallenges"
             android:label="@string/title_activity_show_challenges"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:parentActivityName="com.quizfloor.quizfloor.loginWithFacebook" >
+            <!--   Parent activity meta-data to support 4.0 and lower-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quizfloor.quizfloor.loginWithFacebook" />
         </activity>
         <activity
             android:name=".ShowSubCatagory"
