@@ -22,11 +22,6 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.ProfilePictureView;
-import com.facebook.share.model.GameRequestContent;
-import com.facebook.share.widget.GameRequestDialog;
-
-import java.util.List;
-
 
 public class selectCatagory extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -39,7 +34,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     static String  name;
     static String id;
 
-    GameRequestDialog requestDialog;
+//    GameRequestDialog requestDialog;
     CallbackManager callbackManager;
 
     @Override
@@ -49,13 +44,11 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         setTitle("Welcome");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent =  getIntent();
-         name = intent.getStringExtra("fb");
-         id = intent.getStringExtra("id");
-
+        name = ((quizFloorApplication)getApplicationContext()).getUserName();
+        id =   ((quizFloorApplication)getApplicationContext()).getUserId();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-
         mTitle = getTitle();
 
         // Set up the drawer.
@@ -67,8 +60,8 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         FacebookSdk.sdkInitialize(this.getApplicationContext());
 
         callbackManager = CallbackManager.Factory.create();
-        requestDialog = new GameRequestDialog(this);
-        requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
+  //      requestDialog = new GameRequestDialog(this);
+   /*     requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
             public void onSuccess(GameRequestDialog.Result result) {
                 List<String> id = result.getRequestRecipients();
                 String uid = result.getRequestRecipients().get(1);
@@ -82,17 +75,17 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
             public void onError(FacebookException error) {
             }
         });
-
+*/
     }
 
 
-    public void sendChallenge(View view) {
+  /*  public void sendChallenge(View view) {
 
         GameRequestContent content = new GameRequestContent.Builder().setMessage("Come play this level with me").build();
         requestDialog.show(content);
 
     }
-
+*/
     @Override
     public void onNavigationDrawerItemSelected(int position) {
 
@@ -206,8 +199,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
             ProfilePictureView userImage = (ProfilePictureView)rootView.findViewById(R.id.userImage);
             userImage.setProfileId(id);
             textView.setText(name);
-
-
             return rootView;
         }
 
@@ -223,5 +214,15 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

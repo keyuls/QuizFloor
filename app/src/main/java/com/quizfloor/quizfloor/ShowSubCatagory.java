@@ -76,7 +76,7 @@ public class ShowSubCatagory extends ActionBarActivity {
 
     private void getSubCat() {
 
-        getSubCat.put("catName",((quizFloorApplication)getApplicationContext()).getSelectedCatagory());
+        getSubCat.put("catName", ((quizFloorApplication) getApplicationContext()).getSelectedCatagory());
 
         ParseCloud.callFunctionInBackground("getSubCatagory", getSubCat, new FunctionCallback<List<ParseObject>>() {
             @Override
@@ -114,5 +114,14 @@ public class ShowSubCatagory extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

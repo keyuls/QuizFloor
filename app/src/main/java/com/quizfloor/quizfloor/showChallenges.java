@@ -85,7 +85,7 @@ public class showChallenges extends ActionBarActivity {
         ParseCloud.callFunctionInBackground("ChallengeQue", getQue, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(List<ParseObject> getChallengeQueObj, com.parse.ParseException e) {
-                if(e==null) {
+                if (e == null) {
 
                     Log.d("challenge Que size", String.valueOf(getChallengeQueObj.size()));
                     ((quizFloorApplication) getApplicationContext()).setQueList(getChallengeQueObj);
@@ -133,5 +133,15 @@ public class showChallenges extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

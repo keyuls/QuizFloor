@@ -31,16 +31,14 @@ public class categoryListActivity extends ActionBarActivity {
         setContentView(R.layout.activity_category_list);
         setTitle("Catagories");
         categoryGridView = (GridView)findViewById(R.id.CatgridView);
-
         catagoryObj=((quizFloorApplication)getApplicationContext()).getCatagoryObj();
-
         if((catagoryObj.size())<1) {
             getCatagory();
         }
         showCatagoryList();
-
-
     }
+
+
 
     private void getCatagory() {
 
@@ -82,7 +80,6 @@ public class categoryListActivity extends ActionBarActivity {
 
 
     private void goToSubCat() {
-
       //  ((quizFloorApplication) getApplicationContext()).setChallengeMode(false);
         Intent qintent = new Intent(this, ShowSubCatagory.class);
         startActivity(qintent);
@@ -116,5 +113,15 @@ public class categoryListActivity extends ActionBarActivity {
        // intent.putExtra("fb", name);
         //intent.putExtra("id", id);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

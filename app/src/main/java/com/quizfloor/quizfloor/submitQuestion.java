@@ -1,5 +1,6 @@
 package com.quizfloor.quizfloor;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -59,7 +60,7 @@ public class submitQuestion extends ActionBarActivity {
 
         ParseObject testObject = new ParseObject("SubmitQuestion");
         testObject.put("Catagory",String.valueOf(spinner1.getSelectedItem()) );
-        testObject.put("question",String.valueOf(question.getText()));
+        testObject.put("question", String.valueOf(question.getText()));
         testObject.put("Option1", String.valueOf(option1.getText()));
         testObject.put("Option2", String.valueOf(option2.getText()));
         testObject.put("Option3", String.valueOf(option3.getText()));
@@ -129,5 +130,14 @@ public class submitQuestion extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

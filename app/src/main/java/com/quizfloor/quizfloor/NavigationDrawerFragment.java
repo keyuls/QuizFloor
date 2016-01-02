@@ -1,6 +1,7 @@
 package com.quizfloor.quizfloor;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
@@ -113,7 +115,17 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section3),
                         "Recent Challenges",
                         "Topics",
-                }));
+                }){
+                                       @Override
+                                       public View getView(int position, View convertView, ViewGroup parent) {
+                                           TextView textView = (TextView) super.getView(position, convertView, parent);
+                                           textView.setTextColor(Color.BLACK);
+                                           return textView;
+                                       }
+
+                                   }
+
+        );
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

@@ -39,6 +39,7 @@ import java.util.List;
 public class showQuestion extends Activity {
     int i = 0;
     TextView  questionText;
+    TextView txtQueNo;
     Button op1;
     Button op2;
     Button op3;
@@ -70,6 +71,7 @@ public class showQuestion extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_question);
         questionText =  (TextView)findViewById(R.id.questionText);
+        txtQueNo= (TextView)findViewById(R.id.txtQueNo);
         op1 = (Button)findViewById(R.id.op1Button);
         op2 = (Button)findViewById(R.id.op2Button);
         op3 = (Button)findViewById(R.id.op3Button);
@@ -150,6 +152,7 @@ public class showQuestion extends Activity {
             String option5 = (String) scoreList.get(i).getString("Option5");
                     answer =(String)  scoreList.get(i).getString("Answer");
 
+            txtQueNo.setText(String.valueOf(i+1)+"/"+String.valueOf(scoreList.size()));
             questionText.setText(question);
             op1.setText(option1);
             op2.setText(option2);
@@ -316,11 +319,11 @@ public class showQuestion extends Activity {
     private void deleteChallenge() {
 
         String challengeObjId = ((quizFloorApplication)getApplicationContext()).getChallengeObjId();
-            delCompChal.put("objId",challengeObjId);
+            delCompChal.put("objId", challengeObjId);
             ParseCloud.callFunctionInBackground("DeletePlayedChallenge", delCompChal, new FunctionCallback<List<ParseObject>>() {
                 @Override
                 public void done(List<ParseObject> getDeletePlayedChallengeObj, com.parse.ParseException e) {
-                    if(e==null) {
+                    if (e == null) {
                         Log.d("challenge deleted", String.valueOf(getDeletePlayedChallengeObj.size()));
                     }
                 }
@@ -373,5 +376,15 @@ public class showQuestion extends Activity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Display alert message when back button has been pressed
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        return;
     }
 }

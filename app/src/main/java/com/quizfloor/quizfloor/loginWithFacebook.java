@@ -115,9 +115,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
-
         if (BuildConfig.DEBUG) {
             FacebookSdk.setIsDebugEnabled(true);
             FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
@@ -148,8 +145,8 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                 });
 
 
-
-        try {
+/* hash key code*/
+  /*      try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.quizfloor.quizfloor",
                     PackageManager.GET_SIGNATURES);
@@ -164,7 +161,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         } catch (NoSuchAlgorithmException e) {
 
         }
-
+*/
     }
 
 
@@ -181,8 +178,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                             ((quizFloorApplication)getApplicationContext()).setUserId(user.optString("id"));
                             ((quizFloorApplication)getApplicationContext()).setUserName(user.optString("first_name"));
                             getUserDetails(user);
-
-
 
                             checkTheChallenge();
 
@@ -247,8 +242,8 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     public void startNew()
     {
         Intent intent  = new Intent(this,selectCatagory.class);
-        intent.putExtra("fb", name);
-        intent.putExtra("id", id);
+      //  intent.putExtra("fb", name);
+       // intent.putExtra("id", id);
         startActivity(intent);
     }
 

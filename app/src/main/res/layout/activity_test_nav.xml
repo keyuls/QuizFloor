@@ -21,7 +21,6 @@
         android:layout_gravity="start"
         android:name="com.quizfloor.quizfloor.NavigationDrawerFragment"
         tools:layout="@layout/fragment_navigation_drawer"
-
         />
 
 </android.support.v4.widget.DrawerLayout>
