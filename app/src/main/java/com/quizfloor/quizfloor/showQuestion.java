@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class showQuestion extends Activity {
+public class showQuestion extends ActionBarActivity {
     int i = 0;
     TextView  questionText;
     TextView txtQueNo;
@@ -57,7 +59,8 @@ public class showQuestion extends Activity {
     HashMap<String, Object> params = new HashMap<String, Object>();
     HashMap<String,Object> delCompChal = new HashMap<String, Object>();
     int percent;
-
+    LinearLayout lyDecison;
+    RelativeLayout lyChallenger;
     public String getPercentValue() {
         return percentValue;
     }
@@ -69,6 +72,7 @@ public class showQuestion extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Questions");
         setContentView(R.layout.activity_show_question);
         questionText =  (TextView)findViewById(R.id.questionText);
         txtQueNo= (TextView)findViewById(R.id.txtQueNo);
@@ -270,6 +274,7 @@ public class showQuestion extends Activity {
     public void showResult(int cor,int incor)
     {
         setContentView(R.layout.result);
+        setTitle("Result");
          percent = (cor*100/i);
         setPercentValue(String.valueOf(percent));
         Log.d("percent", String.valueOf(percent));
@@ -288,6 +293,8 @@ public class showQuestion extends Activity {
             decesionVal= (TextView)findViewById(R.id.txtDecesion);
             challengerScoreVal= (TextView)findViewById(R.id.challengeScoreVal);
             challengerScoreTxt=(TextView)findViewById(R.id.txtChalScore);
+            lyDecison=(LinearLayout)findViewById(R.id.lyDecesion);
+            lyChallenger=(RelativeLayout)findViewById(R.id.lyChallenger);
 
             challengerScoreVal.setText(((quizFloorApplication)getApplicationContext()).getChallengerScore());
             challengerScoreTxt.setText(((quizFloorApplication)getApplicationContext()).getChallengerName());
@@ -308,6 +315,8 @@ public class showQuestion extends Activity {
             decesionVal.setText("You Win");
         }
         decesionVal.setVisibility(View.VISIBLE);
+        lyDecison.setVisibility(View.VISIBLE);
+        lyChallenger.setVisibility(View.VISIBLE);
         challengerScoreVal .setVisibility(View.VISIBLE);
         challengerScoreTxt.setVisibility(View.VISIBLE);
 
