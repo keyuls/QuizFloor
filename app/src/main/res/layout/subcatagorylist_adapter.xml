@@ -16,8 +16,8 @@
         android:background="#fff"
         android:padding="16dp"
         android:typeface="monospace"
-
         android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="5dp"
       />
 
 </RelativeLayout>

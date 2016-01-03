@@ -185,7 +185,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     });
 
             Bundle parameters = new Bundle();
-            parameters.putString("fields", "id,first_name,picture");
+            parameters.putString("fields", "id,first_name,picture,email");
             request.setParameters(parameters);
             request.executeAsync();
             friendsToInvite();
@@ -381,28 +381,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         }*/
     }
 
-
-
-  /*  @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        float fbIconScale = 1.45F;
-        Drawable drawable = getApplicationContext().getResources().getDrawable(com.facebook.R.drawable.com_facebook_button_icon,null);
-        drawable.setBounds(0, 0, (int)(drawable.getIntrinsicWidth()*fbIconScale),
-                (int)(drawable.getIntrinsicHeight()*fbIconScale));
-        login_button.setCompoundDrawables(drawable, null, null, null);
-        login_button.setCompoundDrawablePadding( getApplicationContext().getResources().
-                getDimensionPixelSize(R.dimen.fb_margin_override_textpadding));
-        login_button.setPadding(
-                getApplicationContext().getResources().getDimensionPixelSize(
-                        R.dimen.fb_margin_override_lr),
-                getApplicationContext().getResources().getDimensionPixelSize(
-                        R.dimen.fb_margin_override_top),
-                0,
-                login_button.getResources().getDimensionPixelSize(
-                        R.dimen.fb_margin_override_bottom));
-    }*/
 
     @Override
     public void onResume() {

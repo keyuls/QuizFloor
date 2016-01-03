@@ -107,8 +107,6 @@ public class showQuestion extends ActionBarActivity {
 
         }
         else {
-
-
             params.put("topic", ((quizFloorApplication)getApplicationContext()).getSelectedSubCatagory());
             params.put("senderId", ((quizFloorApplication) getApplicationContext()).getUserId());
             params.put("senderName", ((quizFloorApplication) getApplicationContext()).getUserName());
@@ -264,7 +262,7 @@ public class showQuestion extends ActionBarActivity {
         myHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                DisplayQue(((quizFloorApplication)getApplicationContext()).getQueList());
+                DisplayQue(((quizFloorApplication) getApplicationContext()).getQueList());
             }
         }, 2500);
 
@@ -283,7 +281,7 @@ public class showQuestion extends ActionBarActivity {
         TextView incorrectVal=(TextView)findViewById(R.id.incorrectVal);
         TextView percentVal=(TextView)findViewById(R.id.percentVal);
 
-        correctVal.setText(Integer.toString (cor));
+        correctVal.setText(Integer.toString(cor));
         incorrectVal.setText(Integer.toString(incor));
         percentVal.setText(Integer.toString(percent));
 
@@ -310,9 +308,12 @@ public class showQuestion extends ActionBarActivity {
         {
             decesionVal.setText("You Lose");
         }
-        else
+        else if(percent>challengerScore)
         {
             decesionVal.setText("You Win");
+        }
+        else{
+            decesionVal.setText("It's Tie");
         }
         decesionVal.setVisibility(View.VISIBLE);
         lyDecison.setVisibility(View.VISIBLE);

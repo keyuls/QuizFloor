@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:padding="12dp"
     tools:context="com.quizfloor.quizfloor.categoryListActivity"
+    android:background="#D7CCC8"
    >
 
 
