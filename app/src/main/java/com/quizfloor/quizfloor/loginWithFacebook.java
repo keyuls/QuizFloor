@@ -1,10 +1,14 @@
 package com.quizfloor.quizfloor;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -20,10 +24,12 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -63,6 +69,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import android.view.Window;
 
 
 public class loginWithFacebook extends FragmentActivity implements Serializable {
@@ -107,6 +114,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         login_button = (LoginButton) view.findViewById(R.id.login_button);
         login_button.setReadPermissions( "public_profile");
         login_button.setReadPermissions("user_friends");
+
         return view;
 
             }
@@ -127,8 +135,8 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                 updateWithToken(newAccessToken);
             }
         };
-            setContentView(R.layout.activity_login_with_facebook);
-            LoginManager.getInstance().registerCallback(callbackManager,
+        setContentView(R.layout.activity_login_with_facebook);
+        LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {

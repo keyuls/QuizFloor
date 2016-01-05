@@ -58,6 +58,7 @@ public class showQuestion extends ActionBarActivity {
     CallbackManager callbackManager;
     HashMap<String, Object> params = new HashMap<String, Object>();
     HashMap<String,Object> delCompChal = new HashMap<String, Object>();
+    ArrayList<String> recivers = new ArrayList<String>();
     int percent;
     LinearLayout lyDecison;
     RelativeLayout lyChallenger;
@@ -90,6 +91,10 @@ public class showQuestion extends ActionBarActivity {
         requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
             public void onSuccess(GameRequestDialog.Result result) {
                 ((quizFloorApplication) getApplicationContext()).setReciverId(result.getRequestRecipients().get(0));
+
+                for(int i=0;i<result.getRequestRecipients().size();i++){
+                    recivers.add(result.getRequestRecipients().get(i));
+                }
                 updateDb();
                 redirectToCat(); //redirect to catagory
             }
@@ -131,9 +136,10 @@ public class showQuestion extends ActionBarActivity {
 
     public void updateDb(){
 
-        params.put("recieverId", ((quizFloorApplication) getApplicationContext()).getReciverId());
+       params.put("recieverId", ((quizFloorApplication) getApplicationContext()).getReciverId());
+        params.put("friendlist", recivers);
         params.put("score", getPercentValue());
-        ParseCloud.callFunctionInBackground("updateChallenge", params, new FunctionCallback<String>() {
+        ParseCloud.callFunctionInBackground("updateChallengeWithReceiver", params, new FunctionCallback<String>() {
             @Override
             public void done(String updation, ParseException e) {
                 if (e == null) {
