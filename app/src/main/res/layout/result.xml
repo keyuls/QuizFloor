@@ -14,7 +14,7 @@
         android:layout_marginLeft="7dp"
         android:background="#fff"
         android:id="@+id/lyDecesion"
-        android:visibility="gone"
+        android:visibility="visible"
         >
 
         <TextView
@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="You win"
             android:id="@+id/txtDecesion"
-            android:textColor="#000"
+            android:textColor="#795548"
             android:padding="20dp"
             android:textSize="@dimen/abc_text_size_display_2_material"
             android:fontFamily="sans-serif-medium"
@@ -120,7 +120,7 @@
             android:gravity="center"
             android:text="50"
             android:id="@+id/percentVal"
-            android:textColor="#000000"
+            android:textColor="#795548"
             android:textSize="@dimen/abc_text_size_display_1_material"
             android:fontFamily="sans-serif-medium"/>
 
@@ -135,7 +135,7 @@
         android:layout_below="@+id/lyYourScore"
         android:id="@+id/lyChallenger"
         android:layout_marginTop="7dp"
-        android:visibility="gone">
+        android:visibility="visible">
         <TextView
             android:layout_width="370dp"
             android:layout_height="50dp"
@@ -154,7 +154,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="100"
             android:id="@+id/challengeScoreVal"
-            android:textColor="#000000"
+            android:textColor="#795548"
             android:textSize="@dimen/abc_text_size_display_1_material"
             android:fontFamily="sans-serif-medium"/>
 
