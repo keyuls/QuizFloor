@@ -52,13 +52,11 @@ public class showChallenges extends ActionBarActivity {
 
         final challengeListAdapter cAdapter = new challengeListAdapter(this,challengeObj);
         challengesListView.setAdapter((ListAdapter) cAdapter);
-
         challengesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
-
 
                 ParseObject clickedUser = challengeObj.get(position);
                 String indexList = (String) clickedUser.get("IndexList");

@@ -3,29 +3,37 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingBottom="4dp"
     tools:context="com.quizfloor.quizfloor.showQuestion"
     android:screenOrientation="portrait"
     android:background="#D7CCC8"
     >
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/lyQuestionText"
+        >
        <TextView
-        android:text="What is complexity of Insertaion Sort in worst case?" android:layout_width="wrap_content"
+        android:text="But surely maxLines requires you to enter an arbitrary number; this isn't something that will work for every screen size and font size? I find it simpler to just wrap it with a ScrollView, meaning I don't have to add any further XML attributes or code (like setting the movement method). –" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:id="@+id/questionText"
-        android:textStyle="bold"/>
-        </RelativeLayout>
-    </ScrollView>
+        android:textStyle="bold"
+        android:scrollbars = "vertical"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/lyQuestionText">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +52,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="option2"
         android:id="@+id/op2Button"
         android:layout_below="@+id/op1Button"
         android:layout_centerHorizontal="true"
@@ -60,7 +68,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="option3"
         android:id="@+id/op3Button"
         android:layout_below="@+id/op2Button"
         android:layout_centerHorizontal="true"
@@ -90,8 +98,6 @@
         android:textSize="@dimen/abc_text_size_medium_material"
         android:textColor="#fff"/>
 
-
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,6 +114,7 @@
         android:layout_marginBottom="5dp"
         android:textSize="@dimen/abc_text_size_medium_material"
         android:textColor="#fff"/>
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

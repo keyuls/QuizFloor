@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -76,6 +77,7 @@ public class showQuestion extends ActionBarActivity {
         setTitle("Questions");
         setContentView(R.layout.activity_show_question);
         questionText =  (TextView)findViewById(R.id.questionText);
+        questionText.setMovementMethod(new ScrollingMovementMethod());
         txtQueNo= (TextView)findViewById(R.id.txtQueNo);
         op1 = (Button)findViewById(R.id.op1Button);
         op2 = (Button)findViewById(R.id.op2Button);

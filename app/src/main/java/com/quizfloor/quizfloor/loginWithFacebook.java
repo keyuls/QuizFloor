@@ -260,7 +260,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
                  @Override
                  public void onCompleted(GraphResponse response) {
-
                      JSONObject graphObject = response.getJSONObject();
                      List<JSONObject> inviteFriendList = new ArrayList<JSONObject>();
                      try {
