@@ -9,7 +9,7 @@
         android:id="@+id/inviteListItemProfilePic"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/profile_holder_invert"
+
         android:clickable="false"
         android:focusable="false"
         />
@@ -42,7 +42,6 @@
         android:id="@+id/inviteListItemCheckbox"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_check_box_outline_blank_black_24dp"
         android:layout_marginTop="15dp"
 
         />

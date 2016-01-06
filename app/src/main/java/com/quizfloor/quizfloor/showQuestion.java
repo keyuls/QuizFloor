@@ -377,7 +377,7 @@ public class showQuestion extends ActionBarActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_show_question, menu);
+        //getMenuInflater().inflate(R.menu.menu_show_question, menu);
         return true;
     }
 

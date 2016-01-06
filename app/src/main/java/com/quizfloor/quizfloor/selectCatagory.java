@@ -57,9 +57,9 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
 
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
+    //    FacebookSdk.sdkInitialize(this.getApplicationContext());
 
-        callbackManager = CallbackManager.Factory.create();
+  //      callbackManager = CallbackManager.Factory.create();
   //      requestDialog = new GameRequestDialog(this);
    /*     requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
             public void onSuccess(GameRequestDialog.Result result) {
@@ -147,7 +147,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_select_catagory, menu);
+       // getMenuInflater().inflate(R.menu.menu_select_catagory, menu);
         return true;
     }
 
@@ -160,6 +160,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
             return true;
         }
 
@@ -210,12 +211,12 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         }
     }
 
-    @Override
+  /*  @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
+*/
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed

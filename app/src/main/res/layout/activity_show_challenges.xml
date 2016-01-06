@@ -23,7 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/skipButton"
-        android:src="@drawable/ic_close_black_16dp_2x"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/challengesListView"
         android:layout_alignEnd="@+id/challengesListView"

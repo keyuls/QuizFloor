@@ -59,10 +59,6 @@
             android:label="@string/title_activity_show_invite_friend" >
         </activity>
         <activity
-            android:name=".lastPage"
-            android:label="@string/title_activity_last_page" >
-        </activity>
-        <activity
             android:name=".showQuestion"
             android:label="@string/title_activity_show_question"
             android:screenOrientation="portrait"
@@ -128,14 +124,6 @@
         </activity>
 
         <service android:name="com.parse.PushService" />
-        <receiver android:name="com.quizfloor.quizfloor.pushNotificationOpen"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.parse.push.intent.RECEIVE" />
-                <action android:name="com.parse.push.intent.DELETE" />
-                <action android:name="com.parse.push.intent.OPEN" />
-            </intent-filter>
-        </receiver>
         <receiver android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

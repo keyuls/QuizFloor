@@ -70,10 +70,10 @@ public class inviteListAdapter extends ArrayAdapter<JSONObject> {
                 // toggle image
                 if (checked) {
                     checked = false;
-                    checkBox.setImageResource(R.drawable.ic_check_box_outline_blank_black_24dp);
+                    checkBox.setImageResource(R.drawable.abc_ab_share_pack_mtrl_alpha);
                 } else {
                     checked = true;
-                    checkBox.setImageResource(R.drawable.ic_check_box_black_24dp);
+                    checkBox.setImageResource(R.drawable.abc_ab_share_pack_mtrl_alpha);
                 }
                 return false;
             }
