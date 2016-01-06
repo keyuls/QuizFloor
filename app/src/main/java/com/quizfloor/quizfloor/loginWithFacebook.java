@@ -1,6 +1,7 @@
 package com.quizfloor.quizfloor;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -10,6 +11,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
@@ -52,6 +55,7 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.widget.ProfilePictureView;
 import com.parse.FunctionCallback;
+import com.parse.Parse;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
 
@@ -70,12 +74,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import android.view.Window;
+import android.widget.Toast;
 
 
 public class loginWithFacebook extends FragmentActivity implements Serializable {
-
-
-
 
     private List<JSONObject> invitableFriendsList;
     private List<JSONObject> challengableFriendsList;
@@ -110,12 +112,11 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
             LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_login_with_facebook, container, false);
-        login_button = (LoginButton) view.findViewById(R.id.login_button);
-        login_button.setReadPermissions( "public_profile");
-        login_button.setReadPermissions("user_friends");
-
-        return view;
+                    View view = inflater.inflate(R.layout.activity_login_with_facebook, container, false);
+                    login_button = (LoginButton) view.findViewById(R.id.login_button);
+                    login_button.setReadPermissions("public_profile");
+                    login_button.setReadPermissions("user_friends");
+                    return view;
 
             }
 
@@ -135,25 +136,26 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                 updateWithToken(newAccessToken);
             }
         };
+
         setContentView(R.layout.activity_login_with_facebook);
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this);
         LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        callOnSucess();
-                    }
+                    new FacebookCallback<LoginResult>() {
+                        @Override
+                        public void onSuccess(LoginResult loginResult) {
+                            callOnSucess();
+                        }
+                        @Override
+                        public void onCancel() {
+                        }
+                        @Override
+                        public void onError(FacebookException e) {
 
-                    @Override
-                    public void onCancel() {
-                    }
+                        }
+                    });
 
-                    @Override
-                    public void onError(FacebookException e) {
-                    }
-                });
-
-
-/* hash key code*/
+   /* hash key code*/
   /*      try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.quizfloor.quizfloor",
@@ -173,9 +175,10 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     }
 
 
+
     private void callOnSucess() {
 
-        if (AccessToken.getCurrentAccessToken()!=null) {
+         if (AccessToken.getCurrentAccessToken()!=null) {
             GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
                     new GraphRequest.GraphJSONObjectCallback() {
 
@@ -186,7 +189,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                             ((quizFloorApplication)getApplicationContext()).setUserId(user.optString("id"));
                             ((quizFloorApplication)getApplicationContext()).setUserName(user.optString("first_name"));
                             getUserDetails(user);
-
                             checkTheChallenge();
 
                         }
@@ -196,40 +198,33 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
             parameters.putString("fields", "id,first_name,picture,email");
             request.setParameters(parameters);
             request.executeAsync();
-            friendsToInvite();
-
-
+           // friendsToInvite();
             final Handler myHandler = new Handler();
             myHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     //Do something after 100ms
-                    friendsToChallenge();
+                    //friendsToChallenge();
                 }
             }, 1000);
-
         }
     }
 
     public void checkTheChallenge()
     {
-        findChallenge.put("finderId",((quizFloorApplication)getApplicationContext()).getUserId());
-        Log.e("here", "beforeExection");
-        ParseCloud.callFunctionInBackground("findChallenges", findChallenge, new FunctionCallback<List<ParseObject>>()
-        {
+        findChallenge.put("finderId", ((quizFloorApplication) getApplicationContext()).getUserId());
+                ParseCloud.callFunctionInBackground("findChallenges", findChallenge, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(List<ParseObject> challengeObj, com.parse.ParseException e) {
-                Log.e("ahere","afterExection");
                 if (e == null) {
-               Log.d("challenge size", String.valueOf(challengeObj.size()));
-                if (challengeObj.size()>0) {
-                    ((quizFloorApplication) getApplicationContext()).setChallengeObj(challengeObj);
-                    ((quizFloorApplication) getApplicationContext()).setChallengeMode(true);
-                    showChallengeList();
+                    Log.d("challenge size", String.valueOf(challengeObj.size()));
+                    if (challengeObj.size() > 0) {
+                        ((quizFloorApplication) getApplicationContext()).setChallengeObj(challengeObj);
+                        ((quizFloorApplication) getApplicationContext()).setChallengeMode(true);
+                        showChallengeList();
+                    } else {
+                        ((quizFloorApplication) getApplicationContext()).setChallengeMode(false);
                     }
-                    else {
-                    ((quizFloorApplication) getApplicationContext()).setChallengeMode(false);
-                }
                 }
             }
 
@@ -249,10 +244,11 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
     public void startNew()
     {
-        Intent intent  = new Intent(this,selectCatagory.class);
-      //  intent.putExtra("fb", name);
-       // intent.putExtra("id", id);
-        startActivity(intent);
+        if ((isNetworkStatusAvialable(getApplicationContext()))) {
+
+            Intent intent = new Intent(this, selectCatagory.class);
+            startActivity(intent);
+        }
     }
 
 
@@ -265,12 +261,10 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                  @Override
                  public void onCompleted(GraphResponse response) {
 
-
                      JSONObject graphObject = response.getJSONObject();
                      List<JSONObject> inviteFriendList = new ArrayList<JSONObject>();
                      try {
                          JSONArray dataArray = graphObject.getJSONArray("data");
-
                          if (dataArray.length() > 0) {
                              // Ensure the user has at least one friend ...
                              for (int i = 0; i < dataArray.length(); i++) {
@@ -295,7 +289,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
      requestFriend.executeAsync();
  }
 
-    public void friendsToChallenge()
+  /*  public void friendsToChallenge()
     {
         GraphRequest requestFriend = GraphRequest.newGraphPathRequest(AccessToken.getCurrentAccessToken(),
                 "/me/friends",
@@ -332,7 +326,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         requestFriend.executeAsync();
     }
 
-
+*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -400,9 +394,8 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     @Override
     public void onStart() {
         super.onStart();
-      callOnSucess();
-         }
-
+        callOnSucess();
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -417,6 +410,20 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
         return;
+    }
+
+    //check internet connection
+    public static boolean isNetworkStatusAvialable (Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null)
+        {
+            NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
+            if(netInfos != null)
+            {
+                return netInfos.isConnected();
+            }
+        }
+        return false;
     }
 
 }

@@ -60,109 +60,15 @@ public class openingLogo extends ActionBarActivity {
         };
     t.start(); */
 
-        if(isNetworkStatusAvialable (getApplicationContext())) {
-            Toast.makeText(getApplicationContext(), "Internet detected", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Please check your Internet Connection", Toast.LENGTH_SHORT).show();
-
-        }
-
         // Enable Crash Reporting
      //   ParseCrashReporting.enable(this);
 
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this);
 
     }
 
-    //check internet connection
-    public static boolean isNetworkStatusAvialable (Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager != null)
-        {
-            NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
-            if(netInfos != null)
-            {
-                return netInfos.isConnected();
-            }
-        }
-        return false;
-    }
-
-  /*  private void generateCatJson() {
-
-        JSONObject subcatName1 = new JSONObject();
-        try {
-        subcatName1.put("Name","Maths");
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        JSONObject subcatName2 = new JSONObject();
-
-        try {
-            subcatName2.put("Name","English");
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        JSONArray subcat1 = new JSONArray();
-        subcat1.put(subcatName2);
-        subcat1.put(subcatName1);
-
-        JSONObject cat1 = new JSONObject();
-        try {
-            cat1.put("title", "GRE");
-            cat1.put("subcatlist",subcat1);
-        }
-        catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(cat1);
-       // jsonArray.put(student2);
-        JSONObject studentsObj = new JSONObject();
-        try {
-            studentsObj.put("data", jsonArray);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        Log.d("jsonCreate",studentsObj.toString());
 
 
-        try{
-            JSONArray jsonArray1=new JSONObject(parseStr).getJSONArray("data");
-
-            for(int i=0;i<jsonArray1.length();i++)
-            {
-
-               JSONObject jbba= jsonArray1.getJSONObject(i);
-                String title =jbba.optString("title");
-                Log.d("title", title);
-
-              JSONArray jgga= jbba.optJSONArray("subcatlist");
-                String gagag = jgga.optJSONObject(i).optString("Name");
-                Log.d("gagag",gagag);
-            }
-          /*  String name= jsonObject.getString("name");
-            int salary=jsonObject.getInt("salary");
-            String status= jsonObject.getString("married");
-            String str="Employee Name:"+name+"\nEmployee:"+salary+"\nstatus:"+status;
-*/
-     /*       Log.d("check",jsonArray1.toString());
-        }
-        catch(JSONException e)
-        {
-    }
-        }
-*/
     @Override
     public void onStart(){
         super.onStart();
@@ -171,10 +77,19 @@ public class openingLogo extends ActionBarActivity {
             @Override
             public void run() {
                 //Do something after 100ms
-                Intent FbIntent = new Intent(openingLogo.this, loginWithFacebook.class);
-                startActivity(FbIntent);
+
+                if ((isNetworkStatusAvialable(getApplicationContext()))) {
+                    Intent FbIntent = new Intent(openingLogo.this, loginWithFacebook.class);
+                    startActivity(FbIntent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Please check your Internet Connection", Toast.LENGTH_SHORT).show();
+
+
+                }
+
             }
-        }, 2000);
+        }, 3000);
 
 
 
@@ -215,4 +130,20 @@ public class openingLogo extends ActionBarActivity {
         startActivity(startMain);
         return;
     }
+
+
+    //check internet connection
+    public static boolean isNetworkStatusAvialable (Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager != null)
+        {
+            NetworkInfo netInfos = connectivityManager.getActiveNetworkInfo();
+            if(netInfos != null)
+            {
+                return netInfos.isConnected();
+            }
+        }
+        return false;
+    }
+
 }
