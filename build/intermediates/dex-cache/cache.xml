@@ -2,13 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2bfc8c49d42b2d27faa001646d9855f74b813668.jar" />
-    </item>
-    <item
         jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -16,39 +9,11 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f938d1edcec2657f5afca36758ece034f600f858.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-8a6444ae20040d0643c8149ad7d0ddaf73c817c0.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-878b0d33865a1f21132cee62275d146391376091.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.3.0\27cabf3558be23a89f054334dd92512645ad34d9\bolts-android-1.3.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="27cabf3558be23a89f054334dd92512645ad34d9">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-android-1.3.0-c57a1b5dd995d5b54adc9be09f136375a8294e15.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\libs\Parse-1.11.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="54a0d027ea5d5b0dae92833991bb68f9b3da6ca6">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\Parse-1.11.0-0e2f10e4be10c5f9a4a18b3cd6812bc37a298cd2.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\AppData\Local\Android\sdk\build-tools\22.0.1\renderscript\lib\renderscript-v8.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="2b276904cd854be6d460f2bcec9cf2cddaf580c1">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\renderscript-v8-82afa7a6a3f47f8e2c979af6d7ad25203865b14f.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2bfc8c49d42b2d27faa001646d9855f74b813668.jar" />
     </item>
     <item
         jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
@@ -58,11 +23,25 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-796e909e512b9a8411892f5dddb28685d8b9745f.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jar="C:\Users\keyul\AppData\Local\Android\sdk\build-tools\22.0.1\renderscript\lib\renderscript-v8.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-1b16271ae7dd4f8390888c40ced0a2f3ceb057ea.jar" />
+        sha1="2b276904cd854be6d460f2bcec9cf2cddaf580c1">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\renderscript-v8-82afa7a6a3f47f8e2c979af6d7ad25203865b14f.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.3.0\27cabf3558be23a89f054334dd92512645ad34d9\bolts-android-1.3.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="27cabf3558be23a89f054334dd92512645ad34d9">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-android-1.3.0-c57a1b5dd995d5b54adc9be09f136375a8294e15.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f9800cb3b2eb503ef8d14a3b1b080d4194631532.jar" />
     </item>
     <item
         jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.3.0\8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c\bolts-tasks-1.3.0.jar"
@@ -70,6 +49,13 @@
         revision="22.0.1"
         sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.3.0-a964a4e6b8692adbd1843d8407b2d23e858b1044.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-878b0d33865a1f21132cee62275d146391376091.jar" />
     </item>
     <item
         jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.5.0\jars\classes.jar"
@@ -86,11 +72,25 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.3.0-94600f87c164ebb37e00468dd72c5d5a59cb132d.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f9800cb3b2eb503ef8d14a3b1b080d4194631532.jar" />
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-1b16271ae7dd4f8390888c40ced0a2f3ceb057ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\libs\Parse-1.11.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="54a0d027ea5d5b0dae92833991bb68f9b3da6ca6">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\Parse-1.11.0-0e2f10e4be10c5f9a4a18b3cd6812bc37a298cd2.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-8a6444ae20040d0643c8149ad7d0ddaf73c817c0.jar" />
     </item>
 
 </items>

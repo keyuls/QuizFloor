@@ -27,11 +27,13 @@ public class challengeListAdapter extends ArrayAdapter<ParseObject> {
     private final List<ParseObject> challenegListObj;
 
 
+
     public challengeListAdapter(Context context, List<ParseObject> challenegListObj) {
         super(context, R.layout.challenge_adapter, challenegListObj);
         this.context = context;
         this.challenegListObj = challenegListObj;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){

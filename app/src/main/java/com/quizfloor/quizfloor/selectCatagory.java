@@ -91,6 +91,8 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         switch (number) {
             case 1:
                 mTitle = "Hello";
+               // Intent submit = new Intent(this,submitQuestion.class);
+               // startActivity(submit);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
@@ -188,12 +190,12 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         }
     }
 
-   @Override
+  /*  @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
+*/
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed

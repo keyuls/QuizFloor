@@ -55,18 +55,10 @@
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".showInviteFriend"
-            android:label="@string/title_activity_show_invite_friend" >
-        </activity>
-        <activity
             android:name=".showQuestion"
             android:label="@string/title_activity_show_question"
             android:screenOrientation="portrait"
            >
-        </activity>
-        <activity
-            android:name=".testNav"
-            android:label="@string/title_activity_test_nav" >
         </activity>
         <activity
             android:name=".submitQuestion"
@@ -88,14 +80,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.quizfloor.quizfloor.selectCatagory" />
         </activity>
-        <activity
-            android:name=".showChallengeFriend"
-            android:label="@string/title_activity_show_challenge_friend" >
-        </activity>
-        <activity
+    <!--    <activity
             android:name=".challengeListAdapter"
             android:label="@string/title_activity_challenge_list_adapter" >
-        </activity>
+        </activity>-->
         <activity
             android:name=".showChallenges"
             android:label="@string/title_activity_show_challenges"
@@ -118,10 +106,10 @@
                   android:value="com.quizfloor.quizfloor.categoryListActivity" />
         </activity>
 
-        <activity
+        <!--<activity
             android:name=".subCatagoryListAdapter"
             android:label="@string/title_activity_sub_catagory_list_adapter" >
-        </activity>
+        </activity>-->
 
         <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.GcmBroadcastReceiver"
