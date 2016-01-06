@@ -138,8 +138,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         };
 
         setContentView(R.layout.activity_login_with_facebook);
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this);
+
         LoginManager.getInstance().registerCallback(callbackManager,
                     new FacebookCallback<LoginResult>() {
                         @Override

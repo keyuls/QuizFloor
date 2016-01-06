@@ -12,8 +12,10 @@
     <string name="title_activity_test_nav">testNav</string>
 
     <string name="title_section1">Home</string>
-    <string name="title_section2">Submit Question</string>
-    <string name="title_section3">LogOut</string>
+    <string name="title_section2">Exam Topics</string>
+    <string name="title_section3">Recent Challenges</string>
+    <string name="title_section4">Submit your Question </string>
+    <string name="title_section5">Logout</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

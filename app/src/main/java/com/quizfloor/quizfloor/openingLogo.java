@@ -64,7 +64,10 @@ public class openingLogo extends ActionBarActivity {
      //   ParseCrashReporting.enable(this);
 
         // Enable Local Datastore.
-
+        if ((isNetworkStatusAvialable(getApplicationContext()))) {
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this);
+        }
     }
 
 
@@ -79,6 +82,7 @@ public class openingLogo extends ActionBarActivity {
                 //Do something after 100ms
 
                 if ((isNetworkStatusAvialable(getApplicationContext()))) {
+
                     Intent FbIntent = new Intent(openingLogo.this, loginWithFacebook.class);
                     startActivity(FbIntent);
                 }

@@ -113,8 +113,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section1),
                         getString(R.string.title_section2),
                         getString(R.string.title_section3),
-                        "Recent Challenges",
-                        "Topics",
+                        getString(R.string.title_section4),
+                        getString(R.string.title_section5),
                 }){
                                        @Override
                                        public View getView(int position, View convertView, ViewGroup parent) {
@@ -212,24 +212,22 @@ public class NavigationDrawerFragment extends Fragment {
         mCurrentSelectedPosition = position;
         switch (position) {
             case 1:
+                 Intent catagory = new Intent(this.getActivity(), categoryListActivity.class);
+                 startActivity(catagory);
+                break;
+            case 2:
+                Intent challenges = new Intent(this.getActivity(), showChallenges.class);
+                startActivity(challenges);
+                break;
+            case 3:
                 Intent submit = new Intent(this.getActivity(), submitQuestion.class);
                 startActivity(submit);
                 break;
-
-            case 2:
+            case 4:
                 LoginManager.getInstance().logOut();
                 Intent logout = new Intent(this.getActivity(), loginWithFacebook.class);
                 startActivity(logout);
-                 break;
-            case 3:
-                    Intent challenges = new Intent(this.getActivity(), showChallenges.class);
-                    startActivity(challenges);
-                    break;
-
-            case 4:
-                Intent catagory = new Intent(this.getActivity(), categoryListActivity.class);
-                startActivity(catagory);
-                break;
+            break;
 
         }
         if (mDrawerListView != null) {

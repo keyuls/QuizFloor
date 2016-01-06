@@ -55,27 +55,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
-
-    //    FacebookSdk.sdkInitialize(this.getApplicationContext());
-
-  //      callbackManager = CallbackManager.Factory.create();
-  //      requestDialog = new GameRequestDialog(this);
-   /*     requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
-            public void onSuccess(GameRequestDialog.Result result) {
-                List<String> id = result.getRequestRecipients();
-                String uid = result.getRequestRecipients().get(1);
-                Log.d("inviteSize", String.valueOf(id.size()));
-                id.get(1);
-            }
-
-            public void onCancel() {
-            }
-
-            public void onError(FacebookException error) {
-            }
-        });
-*/
     }
 
 
@@ -112,8 +91,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         switch (number) {
             case 1:
                 mTitle = "Hello";
-               // Intent submit = new Intent(this,submitQuestion.class);
-               // startActivity(submit);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
@@ -122,10 +99,10 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                 mTitle = getString(R.string.title_section3);
                 break;
             case 4:
-                mTitle="Recent Challenges";
+                mTitle=getString(R.string.title_section4);
                 break;
             case 5:
-                mTitle="Catagories";
+                mTitle=getString(R.string.title_section5);
                 break;
         }
     }
@@ -211,12 +188,12 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         }
     }
 
-  /*  @Override
+   @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-*/
+
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed
