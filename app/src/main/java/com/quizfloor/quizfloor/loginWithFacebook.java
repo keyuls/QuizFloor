@@ -155,7 +155,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     });
 
    /* hash key code*/
-  /*      try {
+       try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.quizfloor.quizfloor",
                     PackageManager.GET_SIGNATURES);
@@ -170,7 +170,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         } catch (NoSuchAlgorithmException e) {
 
         }
-*/
+
     }
 
 

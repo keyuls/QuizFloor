@@ -2,6 +2,9 @@ package com.quizfloor.quizfloor;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
@@ -9,6 +12,7 @@ import android.os.SystemClock;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +28,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 
@@ -31,15 +37,29 @@ public class openingLogo extends ActionBarActivity {
 
     static  int count =0;
 
-  //  String parseStr ="{\"data\":[{\"title\":\"GRE\",\"subcatlist\":[{\"Name\":\"English\"},{\"Name\":\"Maths\"}]},{\"title\":\"MobileProgramming\",\"subcatlist\":[{\"Name\":\"Android\"},{\"Name\":\"IOS\"},{\"Name\":\"Swift\"}]}]}";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opening_logo);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    "com.quizfloor.quizfloor",
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("YourKeyHash1 :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.d("YourKeyHash1: ", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
 
 
 /*        Thread t = new Thread(){

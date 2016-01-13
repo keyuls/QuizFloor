@@ -113,7 +113,6 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section1),
                         getString(R.string.title_section2),
                         getString(R.string.title_section3),
-                        getString(R.string.title_section4),
                         getString(R.string.title_section5),
                 }){
                                        @Override
@@ -219,11 +218,11 @@ public class NavigationDrawerFragment extends Fragment {
                 Intent challenges = new Intent(this.getActivity(), showChallenges.class);
                 startActivity(challenges);
                 break;
+            //case 3:
+            //    Intent submit = new Intent(this.getActivity(), submitQuestion.class);
+              //  startActivity(submit);
+               // break;
             case 3:
-                Intent submit = new Intent(this.getActivity(), submitQuestion.class);
-                startActivity(submit);
-                break;
-            case 4:
                 LoginManager.getInstance().logOut();
                 Intent logout = new Intent(this.getActivity(), loginWithFacebook.class);
                 startActivity(logout);
