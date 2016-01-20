@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -87,6 +88,7 @@ public class openingLogo extends ActionBarActivity {
         if ((isNetworkStatusAvialable(getApplicationContext()))) {
             Parse.enableLocalDatastore(this);
             Parse.initialize(this);
+            ParseInstallation.getCurrentInstallation().saveInBackground();
         }
     }
 
