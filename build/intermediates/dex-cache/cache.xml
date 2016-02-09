@@ -2,25 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f9800cb3b2eb503ef8d14a3b1b080d4194631532.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-3cb2f9997e0523767cf37fc4d0a1a90e46e3b22d.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\libs\Parse-1.11.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="54a0d027ea5d5b0dae92833991bb68f9b3da6ca6">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\Parse-1.11.0-0e2f10e4be10c5f9a4a18b3cd6812bc37a298cd2.jar" />
+        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-99cf1f75a5911c614270d40cf8d7c1ee3ace2360.jar" />
     </item>
     <item
         jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
@@ -30,18 +16,109 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-1b16271ae7dd4f8390888c40ced0a2f3ceb057ea.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0-4f0f3eee84fb16389f7bebdbb4979e478f125f03.jar" />
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0-74370c3a5c1e90ad21f2ab63010172369e61e7aa.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-796e909e512b9a8411892f5dddb28685d8b9745f.jar" />
+        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-c5f4756c97cb945a39e5aea89f3937515ee17810.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-b36ec62615dda200fae88720f1300ed6578c2b16.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-b5ec8da0df374264900b15534ee4ba672de2c30d.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-5e7eda141b463f0a86ab31c7f2be0656eb49b624.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-74498ac2669482ffae614e77e765e31fb5bb3e8b.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-fc6bd19956475f12147dbaa8ce69bd09cb4fb097.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-806201aa632a89bb31bc07751480c4961175e8c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-6c991fca4785c50e65ce7428547b731814bcf37b.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-a1fee227e6616ef763edf71612ff3fb550cc2eb0.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-bb2bae3f7941d2749ebbd26899fb8cd0235970c6.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-7a54cfbe1c4c00c95a7cc3dad8f37b9784e33040.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="15ad6a46fb8e2ed86556e0b330d738b589dc62c7">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-3cb2f9997e0523767cf37fc4d0a1a90e46e3b22d.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-58adc56d5055fefb51bb97172563b5dc9dbeb2b7.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-56a5b99a45000b8df521931e171dad6c59390292.jar" />
     </item>
     <item
         jar="C:\Users\keyul\AppData\Local\Android\sdk\build-tools\22.0.1\renderscript\lib\renderscript-v8.jar"
@@ -51,18 +128,11 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\renderscript-v8-82afa7a6a3f47f8e2c979af6d7ad25203865b14f.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.4.0\cc174c559b5177982887bf6e1b76003aebad9516\bolts-android-1.4.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-2bfc8c49d42b2d27faa001646d9855f74b813668.jar" />
-    </item>
-    <item
-        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0-74370c3a5c1e90ad21f2ab63010172369e61e7aa.jar" />
+        sha1="cc174c559b5177982887bf6e1b76003aebad9516">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-android-1.4.0-5e8692752918c268e38e3210591e0cc26ee1afa3.jar" />
     </item>
     <item
         jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\21.0.3\jars\classes.jar"
@@ -72,25 +142,88 @@
         <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f938d1edcec2657f5afca36758ece034f600f858.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-8a6444ae20040d0643c8149ad7d0ddaf73c817c0.jar" />
+        sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-99ce16e8d0912d30aa73131f8a4f6d3fb33fa14f.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.4.0\cc174c559b5177982887bf6e1b76003aebad9516\bolts-android-1.4.0.jar"
+        jar="C:\Users\keyul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="cc174c559b5177982887bf6e1b76003aebad9516">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-android-1.4.0-5e8692752918c268e38e3210591e0cc26ee1afa3.jar" />
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0-4f0f3eee84fb16389f7bebdbb4979e478f125f03.jar" />
     </item>
     <item
-        jar="C:\Users\keyul\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\21.0.3\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-878b0d33865a1f21132cee62275d146391376091.jar" />
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-f9800cb3b2eb503ef8d14a3b1b080d4194631532.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-2009c746b75cc72262a12b8e6138100dc05eab83.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-796e909e512b9a8411892f5dddb28685d8b9745f.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-ead3d2e0254c83a43b95d65a12cbb028ec0dd3c0.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-0763efdccddfd0e794decb16e27a3cc633d560d6.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="055783146ba9654a725442563be78cad303aad1f">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-848f95118051b34c1b5ddf63176a351e39f98045.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-2022364adc6ba54b3679f9e3daf58dccb5b08d4e.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\libs\Parse-1.11.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="54a0d027ea5d5b0dae92833991bb68f9b3da6ca6">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\Parse-1.11.0-0e2f10e4be10c5f9a4a18b3cd6812bc37a298cd2.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-bcbe4cc195a556dfa48d1b3cf3950d42705df0af.jar" />
+    </item>
+    <item
+        jar="C:\Users\keyul\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-58ba37f9d007a080db693086b0b34b594c25922a.jar" />
     </item>
 
 </items>

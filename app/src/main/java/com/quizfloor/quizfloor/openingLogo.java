@@ -24,6 +24,7 @@ import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,12 +84,19 @@ public class openingLogo extends ActionBarActivity {
 
         // Enable Crash Reporting
      //   ParseCrashReporting.enable(this);
-
+      //  String deviceToken="";
         // Enable Local Datastore.
         if ((isNetworkStatusAvialable(getApplicationContext()))) {
             Parse.enableLocalDatastore(this);
             Parse.initialize(this);
-            ParseInstallation.getCurrentInstallation().saveInBackground();
+           /* ParseInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    Log.e("devicetoken",
+                    (String) ParseInstallation.getCurrentInstallation().get("deviceToken"));
+                }
+            }); */
+
         }
     }
 

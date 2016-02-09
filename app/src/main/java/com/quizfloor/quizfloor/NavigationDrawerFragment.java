@@ -1,7 +1,9 @@
 package com.quizfloor.quizfloor;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -13,6 +15,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -113,6 +116,9 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section1),
                         getString(R.string.title_section2),
                         getString(R.string.title_section3),
+                        "Rate this app",
+                        "Share",
+                        /*"Report bug or Feedback",*/
                         getString(R.string.title_section5),
                 }){
                                        @Override
@@ -223,6 +229,23 @@ public class NavigationDrawerFragment extends Fragment {
               //  startActivity(submit);
                // break;
             case 3:
+                Uri uri = Uri.parse("market://details?id=" +this.getActivity().getPackageName());
+                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(myAppLinkToMarket);
+                } catch (ActivityNotFoundException e) {
+                  //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+                    Log.e("sidemenu", "error");
+                }
+                 break;
+            case 4:
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "Try out Quizfloor. It is the best app for exam preparation. http://bit.ly/quizfloor");
+                startActivity(Intent.createChooser(intent, "Share"));
+                break;
+            case 5:
+            case 6:
                 LoginManager.getInstance().logOut();
                 Intent logout = new Intent(this.getActivity(), loginWithFacebook.class);
                 startActivity(logout);

@@ -104,6 +104,9 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                 mTitle=getString(R.string.title_section4);
                 break;
             case 5:
+                mTitle="Rate app";
+                break;
+            case 6:
                 mTitle=getString(R.string.title_section5);
                 break;
         }

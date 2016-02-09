@@ -116,6 +116,8 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     login_button = (LoginButton) view.findViewById(R.id.login_button);
                     login_button.setReadPermissions("public_profile");
                     login_button.setReadPermissions("user_friends");
+                    login_button.setReadPermissions("email");
+                    login_button.setReadPermissions("user_location");
                     return view;
 
             }
@@ -187,6 +189,11 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                             Log.e("userKeyul", user.optString("id"));
                             ((quizFloorApplication)getApplicationContext()).setUserId(user.optString("id"));
                             ((quizFloorApplication)getApplicationContext()).setUserName(user.optString("first_name"));
+
+                            Log.e("userLocation", user.optString("location"));
+                            Log.e("userGen", user.optString("gender"));
+                            Log.e("userEmail", user.optString("email"));
+
                             getUserDetails(user);
                             checkTheChallenge();
 
@@ -194,7 +201,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     });
 
             Bundle parameters = new Bundle();
-            parameters.putString("fields", "id,first_name,picture,email");
+            parameters.putString("fields", "id,first_name,picture,email,location,gender");
             request.setParameters(parameters);
             request.executeAsync();
            // friendsToInvite();
