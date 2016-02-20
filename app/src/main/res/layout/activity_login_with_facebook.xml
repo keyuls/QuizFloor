@@ -42,5 +42,17 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/notice"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="we don't post anything on facebook"
+        android:layout_below="@+id/login_button"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp"
+        android:layout_centerHorizontal="true"
+
+        />
+
 
 </RelativeLayout>
