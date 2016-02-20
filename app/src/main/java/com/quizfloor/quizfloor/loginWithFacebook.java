@@ -118,6 +118,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     login_button.setReadPermissions("user_friends");
                     login_button.setReadPermissions("email");
                     login_button.setReadPermissions("user_location");
+
                     return view;
 
             }
@@ -146,6 +147,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                         @Override
                         public void onSuccess(LoginResult loginResult) {
                             callOnSucess();
+                          //  getUserScore();
                         }
                         @Override
                         public void onCancel() {
@@ -332,6 +334,44 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     }
 
 */
+
+    public void getUserScore(){
+        if (AccessToken.getCurrentAccessToken()!=null) {
+     //       login_button.setReadPermissions("user_games_activity");
+            Bundle params = new Bundle();
+            params.putString("score", "3444");
+/* make the API call */
+            new GraphRequest(
+                    AccessToken.getCurrentAccessToken(),
+                    "/me/scores",
+                    params,
+                    HttpMethod.POST,
+                    new GraphRequest.Callback() {
+                        public void onCompleted(GraphResponse response) {
+            /* handle the result */
+                        }
+                    }
+            ).executeAsync();
+
+          //  login_button.setReadPermissions("user_games_activity");
+            GraphRequest request = new GraphRequest(
+                    AccessToken.getCurrentAccessToken(),
+                    "/me/scores",
+                    null,
+                    HttpMethod.GET,
+                    new GraphRequest.Callback() {
+                        public void onCompleted(GraphResponse response) {
+            /* handle the result */
+                            JSONObject graphObject= response.getJSONObject();
+                            Log.e("score","100");
+                        }
+                    }
+            );
+            request.executeAsync();
+
+                    }
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -2,13 +2,17 @@ package com.quizfloor.quizfloor;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
@@ -307,6 +311,16 @@ public class showQuestion extends ActionBarActivity {
 
             compareScore();
         }
+
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 5s = 5000ms
+                askForRating();
+            }
+        }, 5000);
     }
 
     /*Comapre Score with opponent*/
@@ -398,11 +412,51 @@ public class showQuestion extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
+
+        askForRating();
         //Display alert message when back button has been pressed
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
         return;
+    }
+
+    public void askForRating() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("Rate this App");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Would you like to rate this app?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Uri uri = Uri.parse("market://details?id=" +getApplicationContext().getPackageName() );
+                        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                        try {
+                            startActivity(myAppLinkToMarket);
+                        } catch (ActivityNotFoundException e) {
+                            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+                            Log.e("sidemenu", "error");
+                        }
+                    }
+                })
+                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                    }
+                });
+        // create alert dialog
+
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+
     }
 }
