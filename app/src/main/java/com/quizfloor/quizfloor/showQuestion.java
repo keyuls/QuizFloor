@@ -298,6 +298,7 @@ public class showQuestion extends ActionBarActivity {
         percentVal.setText(Integer.toString(percent));
 
 
+
         if(((quizFloorApplication)getApplicationContext()).isChallengeMode()) {
 
             decesionVal= (TextView)findViewById(R.id.txtDecesion);
@@ -311,16 +312,18 @@ public class showQuestion extends ActionBarActivity {
 
             compareScore();
         }
+        else{
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    askForChallengeFriends();
+                }
+            }, 3000);
+        }
 
 
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Do something after 5s = 5000ms
-                askForRating();
-            }
-        }, 5000);
+
     }
 
     /*Comapre Score with opponent*/
@@ -364,6 +367,10 @@ public class showQuestion extends ActionBarActivity {
 
     public void playAgain(View view)
     {
+        startNewGame();
+    }
+
+    public void startNewGame(){
         deleteCurrentUser();
         Intent qintent = new Intent(this, categoryListActivity.class);
         startActivity(qintent);
@@ -375,12 +382,9 @@ public class showQuestion extends ActionBarActivity {
             public void done(String updation, ParseException e) {
 
                 if (e == null) {
-
                     Log.d("user deleted", updation);
                 }
-
-
-            }
+           }
         });
 
     }
@@ -413,7 +417,6 @@ public class showQuestion extends ActionBarActivity {
     @Override
     public void onBackPressed() {
 
-        askForRating();
         //Display alert message when back button has been pressed
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
@@ -451,6 +454,47 @@ public class showQuestion extends ActionBarActivity {
                         // if this button is clicked, just close
                         // the dialog box and do nothing
                         dialog.cancel();
+                        startNewGame();
+                    }
+                });
+        // create alert dialog
+
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+
+    }
+
+    public void askForChallengeFriends() {
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("Challenge Your Friends");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Would you like to challenge your friends?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build(); /*.setActionType(GameRequestContent.ActionType.SEND)*/
+                        requestDialog.show(content);
+
+                    }
+                })
+                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                 askForRating();
+                            }
+                        }, 3000);
                     }
                 });
         // create alert dialog
