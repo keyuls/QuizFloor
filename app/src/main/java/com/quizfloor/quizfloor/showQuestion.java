@@ -137,7 +137,6 @@ public class showQuestion extends ActionBarActivity {
     private void redirectToCat() {
         Intent cintent = new Intent(this, categoryListActivity.class);
         startActivity(cintent);
-
     }
 
     public void updateDb(){

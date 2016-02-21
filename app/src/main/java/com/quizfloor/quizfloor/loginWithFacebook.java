@@ -118,7 +118,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     login_button.setReadPermissions("user_friends");
                     login_button.setReadPermissions("email");
                     login_button.setReadPermissions("user_location");
-
                     return view;
 
             }

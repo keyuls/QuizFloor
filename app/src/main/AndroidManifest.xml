@@ -11,6 +11,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
+    <!-- Permission to get DeviceId -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
     <!--
       IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
       to match your app's package name + ".permission.C2D_MESSAGE".
@@ -18,6 +21,11 @@
     <permission android:protectionLevel="signature"
         android:name="com.quizfloor.quizfloor.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.quizfloor.quizfloor.permission.C2D_MESSAGE" />
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE"/>
+
 
     <application
         android:name=".quizFloorApplication"
@@ -30,7 +38,6 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -118,20 +125,59 @@
             android:label="@string/title_activity_sub_catagory_list_adapter" >
         </activity>-->
 
-        <service android:name="com.parse.PushService" />
+
+
+    <!--    <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" /> -->
 
                 <!--
                   IMPORTANT: Change "com.parse.starter" to match your app's package name.
                 -->
+        <!--      <category android:name="com.quizfloor.quizfloor" />
+         </intent-filter>
+     </receiver> -->
+
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
+        <activity android:name="com.pushwoosh.richpages.RichPageActivity" />
+        <activity android:name="com.pushwoosh.MessageActivity" />
+        <activity android:name="com.pushwoosh.PushHandlerActivity" />
+        <receiver android:name="com.pushwoosh.local.AlarmReceiver" />
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <category android:name="com.quizfloor.quizfloor" />
             </intent-filter>
         </receiver>
 
+        <service
+            android:name="com.pushwoosh.GCMListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.pushwoosh.GCMInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.pushwoosh.GCMRegistrationService"
+            android:exported="false">
+        </service>
 
         <meta-data
             android:name="com.parse.APPLICATION_ID"
@@ -139,6 +185,10 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="6MCsFJw6TpaN3EoD3nYgdshBD7Jfn9u7P6mM5KBw" />
+
+        <meta-data android:name="PW_APPID" android:value="E13C8-08B5F" />
+        <meta-data android:name="PW_PROJECT_ID" android:value="A686193657719" />
+
     </application>
 
 </manifest>
