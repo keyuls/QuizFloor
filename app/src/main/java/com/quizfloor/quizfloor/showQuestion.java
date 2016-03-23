@@ -24,10 +24,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
 import com.facebook.share.model.GameRequestContent;
 import com.facebook.share.widget.GameRequestDialog;
 import com.parse.FindCallback;
@@ -296,6 +300,24 @@ public class showQuestion extends ActionBarActivity {
         incorrectVal.setText(Integer.toString(incor));
         percentVal.setText(Integer.toString(percent));
 
+        int updatedScore = percent + ((quizFloorApplication) getApplicationContext()).getFbScore() ;
+        ((quizFloorApplication) getApplicationContext()).setFbScore(updatedScore) ;
+        Bundle params = new Bundle();
+
+        //-call to update fb score card--//
+        params.putString("score", String.valueOf( updatedScore));
+/* make the API call */
+        new GraphRequest(
+                AccessToken.getCurrentAccessToken(),
+                "/me/scores",
+                params,
+                HttpMethod.POST,
+                new GraphRequest.Callback() {
+                    public void onCompleted(GraphResponse response) {
+            /* handle the result */
+                    }
+                }
+        ).executeAsync();
 
 
         if(((quizFloorApplication)getApplicationContext()).isChallengeMode()) {

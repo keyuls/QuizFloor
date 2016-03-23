@@ -118,6 +118,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     login_button.setReadPermissions("user_friends");
                     login_button.setReadPermissions("email");
                     login_button.setReadPermissions("user_location");
+                    login_button.setReadPermissions("publish_actions");
                     return view;
 
             }
@@ -128,7 +129,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
         if (BuildConfig.DEBUG) {
             FacebookSdk.setIsDebugEnabled(true);
-            FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+            FacebookSdk.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS) ;
         }
         FacebookSdk.sdkInitialize(getApplicationContext());
         accessToken =  AccessToken.getCurrentAccessToken();
@@ -142,20 +143,22 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         setContentView(R.layout.activity_login_with_facebook);
 
         LoginManager.getInstance().registerCallback(callbackManager,
-                    new FacebookCallback<LoginResult>() {
-                        @Override
-                        public void onSuccess(LoginResult loginResult) {
-                            callOnSucess();
-                          //  getUserScore();
-                        }
-                        @Override
-                        public void onCancel() {
-                        }
-                        @Override
-                        public void onError(FacebookException e) {
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        callOnSucess();
+                        //  getUserScore();
+                    }
 
-                        }
-                    });
+                    @Override
+                    public void onCancel() {
+                    }
+
+                    @Override
+                    public void onError(FacebookException e) {
+
+                    }
+                });
 
    /* hash key code*/
        try {
@@ -180,8 +183,13 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
     private void callOnSucess() {
 
-         if (AccessToken.getCurrentAccessToken()!=null) {
-            GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(),
+
+
+        if (AccessToken.getCurrentAccessToken()!=null) {
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email"));
+            LoginManager.getInstance().logInWithPublishPermissions(this, Arrays.asList("publish_actions"));
+           // AccessToken.refreshCurrentAccessTokenAsync();
+            GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken() ,
                     new GraphRequest.GraphJSONObjectCallback() {
 
                         @Override
@@ -191,9 +199,15 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                             ((quizFloorApplication)getApplicationContext()).setUserId(user.optString("id"));
                             ((quizFloorApplication)getApplicationContext()).setUserName(user.optString("first_name"));
 
+                            try {
+                                retriveCurrentScore(user);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             Log.e("userLocation", user.optString("location"));
                             Log.e("userGen", user.optString("gender"));
                             Log.e("userEmail", user.optString("email"));
+                            Log.e("Userscores", user.optString("scores"));
 
                             getUserDetails(user);
                             checkTheChallenge();
@@ -202,7 +216,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
                     });
 
             Bundle parameters = new Bundle();
-            parameters.putString("fields", "id,first_name,picture,email,location,gender");
+            parameters.putString("fields", "id,first_name,picture,email,location,gender,scores");
             request.setParameters(parameters);
             request.executeAsync();
            // friendsToInvite();
@@ -217,10 +231,21 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         }
     }
 
+    private void retriveCurrentScore(JSONObject user) throws JSONException {
+        JSONObject jsonScoreObj = user.optJSONObject("scores");
+        JSONArray dataArray = jsonScoreObj.getJSONArray("data");
+        JSONObject objectIn = dataArray.getJSONObject(0);
+        String getScore = objectIn.optString("score");
+        Log.e("Userscore", getScore);
+        ((quizFloorApplication) getApplicationContext()).setFbScore(Integer.parseInt(getScore));
+
+
+    }
+
     public void checkTheChallenge()
     {
         findChallenge.put("finderId", ((quizFloorApplication) getApplicationContext()).getUserId());
-                ParseCloud.callFunctionInBackground("findChallenges", findChallenge, new FunctionCallback<List<ParseObject>>() {
+        ParseCloud.callFunctionInBackground("findChallenges", findChallenge, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(List<ParseObject> challengeObj, com.parse.ParseException e) {
                 if (e == null) {
@@ -333,43 +358,6 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
     }
 
 */
-
-    public void getUserScore(){
-        if (AccessToken.getCurrentAccessToken()!=null) {
-     //       login_button.setReadPermissions("user_games_activity");
-            Bundle params = new Bundle();
-            params.putString("score", "3444");
-/* make the API call */
-            new GraphRequest(
-                    AccessToken.getCurrentAccessToken(),
-                    "/me/scores",
-                    params,
-                    HttpMethod.POST,
-                    new GraphRequest.Callback() {
-                        public void onCompleted(GraphResponse response) {
-            /* handle the result */
-                        }
-                    }
-            ).executeAsync();
-
-          //  login_button.setReadPermissions("user_games_activity");
-            GraphRequest request = new GraphRequest(
-                    AccessToken.getCurrentAccessToken(),
-                    "/me/scores",
-                    null,
-                    HttpMethod.GET,
-                    new GraphRequest.Callback() {
-                        public void onCompleted(GraphResponse response) {
-            /* handle the result */
-                            JSONObject graphObject= response.getJSONObject();
-                            Log.e("score","100");
-                        }
-                    }
-            );
-            request.executeAsync();
-
-                    }
-    }
 
 
     @Override

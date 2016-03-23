@@ -33,7 +33,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     private CharSequence mTitle;
     static String  name;
     static String id;
-
+    static int CurrentScore=0;
 //    GameRequestDialog requestDialog;
     CallbackManager callbackManager;
 
@@ -46,6 +46,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         Intent intent =  getIntent();
         name = ((quizFloorApplication)getApplicationContext()).getUserName();
         id =   ((quizFloorApplication)getApplicationContext()).getUserId();
+        CurrentScore =((quizFloorApplication) getApplicationContext()).getFbScore();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -180,8 +181,10 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
             View rootView = inflater.inflate(R.layout.activity_select_catagory, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.userName);
             ProfilePictureView userImage = (ProfilePictureView)rootView.findViewById(R.id.userImage);
+            TextView scoreText = (TextView) rootView.findViewById(R.id.fbScoreVal);
             userImage.setProfileId(id);
             textView.setText(name);
+            scoreText.setText(String.valueOf( CurrentScore ));
             return rootView;
         }
 

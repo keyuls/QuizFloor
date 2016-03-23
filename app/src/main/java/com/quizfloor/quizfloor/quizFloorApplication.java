@@ -24,6 +24,16 @@ public class quizFloorApplication extends Application {
     private String reciverId;
     private boolean challengeMode=false;
     List<ParseObject> queList;
+
+    public int getFbScore() {
+        return fbScore;
+    }
+
+    public void setFbScore(int fbScore) {
+        this.fbScore = fbScore;
+    }
+
+    int fbScore;
     List<ParseObject> challengeObj=new List<ParseObject>() {
         @Override
         public void add(int location, ParseObject object) {

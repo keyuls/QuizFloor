@@ -31,6 +31,8 @@
          android:layout_gravity="center_horizontal|top" />
 
 
+
+
  </FrameLayout>
 
     <TextView
@@ -58,6 +60,33 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" /> -->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/fbScoreVal"
+        android:layout_gravity="center"
+        android:textColor="#8D6E63"
+        android:textSize="26sp"
+        android:paddingLeft="4dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="230dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Score :"
+        android:id="@+id/scoreDis"
+        android:textColor="#FFA000"
+        android:layout_gravity="center"
+        android:textSize="26sp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginLeft="113dp"
+        android:layout_centerHorizontal="true"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,8 +97,8 @@
         android:textSize="@dimen/abc_text_size_medium_material"
         android:padding="16dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="114dp" />
+        android:layout_marginBottom="114dp"
+        android:layout_centerHorizontal="true"/>
 
 
 
