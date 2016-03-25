@@ -7,6 +7,7 @@ import com.parse.ParseObject;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,22 @@ public class quizFloorApplication extends Application {
     private String reciverId;
     private boolean challengeMode=false;
     List<ParseObject> queList;
+    List<JSONObject> friendScoreBoardList;
+    int fbScore=0;
+    private String challengerScore;
+    private String challengerName;
+    private String selectedSubCatagory;
+    String challengeObjId;
+
+    public List<JSONObject> getFriendScoreBoardList() {
+        return friendScoreBoardList;
+    }
+
+    public void setFriendScoreBoardList(List<JSONObject> friendScoreBoardList) {
+        this.friendScoreBoardList = friendScoreBoardList;
+    }
+
+
 
     public int getFbScore() {
         return fbScore;
@@ -33,7 +50,7 @@ public class quizFloorApplication extends Application {
         this.fbScore = fbScore;
     }
 
-    int fbScore;
+
     List<ParseObject> challengeObj=new List<ParseObject>() {
         @Override
         public void add(int location, ParseObject object) {
@@ -156,10 +173,7 @@ public class quizFloorApplication extends Application {
             return null;
         }
     };
-    private String challengerScore;
-    private String challengerName;
-    private String selectedSubCatagory;
-    String challengeObjId;
+
 
     public String getChallengeObjId() {
         return challengeObjId;

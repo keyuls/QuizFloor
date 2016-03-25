@@ -101,6 +101,19 @@
         android:layout_centerHorizontal="true"/>
 
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Score board"
+        android:id="@+id/ScoreBoard"
+        android:background="#8D6E63"
+        android:onClick="getScoreBoard"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54dp"
+        android:layout_centerHorizontal="true"/>
+
 
     <!--<Button
         android:layout_width="200dp"

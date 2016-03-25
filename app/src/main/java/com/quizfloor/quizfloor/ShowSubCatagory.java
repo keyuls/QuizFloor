@@ -2,10 +2,13 @@ package com.quizfloor.quizfloor;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import com.facebook.share.model.GameRequestContent;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
@@ -62,9 +66,40 @@ public class ShowSubCatagory extends ActionBarActivity {
                 ParseObject clickedUser = subCatObj.get(position);
                 String selectedSubCatagory = (String) clickedUser.get("DbName");
                 ((quizFloorApplication) getApplicationContext()).setSelectedSubCatagory(selectedSubCatagory);
-                goToShowQuestion();
+                showNotice();
+
             }
         });
+    }
+
+    private void showNotice() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("Rules");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("You are going into quiz mode now. Answer five questions to score well.")
+                .setCancelable(false)
+                .setPositiveButton("Play", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        goToShowQuestion();
+                    }
+                })
+                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // if this button is clicked, just close
+                        // the dialog box and do nothing
+                        dialog.cancel();
+
+                    }
+                });
+        // create alert dialog
+
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
     }
 
     private void goToShowQuestion() {

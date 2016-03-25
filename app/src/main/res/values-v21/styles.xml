@@ -2,22 +2,28 @@
 <resources>
 
     <!-- inherit from the material theme -->
-   <style name="AppThemeMaterial" parent="android:Theme.Material">
-    <!--   Main theme colors -->
+    <style name="AppThemeMaterial" parent="android:Theme.Material">
+        <!--   Main theme colors -->
 
-       <!--   your app branding color for the app bar -->
-       <item name="colorPrimary">#9C27B0</item>
-       <!--  darker variant for the status bar and contextual app bars -->
-       <item name="colorPrimaryDark">#7B1FA2</item>
-       <!--   theme UI controls like checkboxes and text fields -->
-       <item name="colorAccent">#FF8A80</item>
+        <!--   your app branding color for the app bar -->
+        <item name="colorPrimary">#9C27B0</item>
+        <!--  darker variant for the status bar and contextual app bars -->
+        <item name="colorPrimaryDark">#7B1FA2</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">#FF8A80</item>
 
-       <item name= "android:textColorPrimary">#FFFFFF</item>
-
-
+        <item name="android:textColorPrimary">#FFFFFF</item>
 
 
-   </style>
+    </style>
+    >
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
 </resources>
 
 

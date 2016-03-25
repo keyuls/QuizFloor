@@ -127,6 +127,16 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         Intent qintent = new Intent(this, categoryListActivity.class);
         startActivity(qintent);
     }
+
+    public void getScoreBoard(View view) {
+        startScoreBoardAct();
+    }
+
+
+    private void startScoreBoardAct() {
+        Intent intent = new Intent(this, scoreBoardDisplay.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

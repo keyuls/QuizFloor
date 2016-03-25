@@ -1,39 +1,22 @@
 package com.quizfloor.quizfloor;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-import android.provider.ContactsContract;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -42,20 +25,13 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
-import com.facebook.GraphRequestAsyncTask;
-import com.facebook.GraphRequestBatch;
 import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
 import com.facebook.LoggingBehavior;
-import com.facebook.ProfileTracker;
 
-import com.facebook.internal.ImageDownloader;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.facebook.login.widget.ProfilePictureView;
 import com.parse.FunctionCallback;
-import com.parse.Parse;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
 
@@ -63,22 +39,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Console;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import android.view.Window;
-import android.widget.Toast;
 
 
 public class loginWithFacebook extends FragmentActivity implements Serializable {
 
+    private static String app_id="835011139946449";
     private List<JSONObject> invitableFriendsList;
     private List<JSONObject> challengableFriendsList;
     LoginButton login_button;
@@ -183,11 +156,10 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
     private void callOnSucess() {
 
-
-
         if (AccessToken.getCurrentAccessToken()!=null) {
             LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("email"));
             LoginManager.getInstance().logInWithPublishPermissions(this, Arrays.asList("publish_actions"));
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("user_friends"));
            // AccessToken.refreshCurrentAccessTokenAsync();
             GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken() ,
                     new GraphRequest.GraphJSONObjectCallback() {
@@ -201,6 +173,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
 
                             try {
                                 retriveCurrentScore(user);
+                                friendScoereList();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -231,14 +204,47 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         }
     }
 
-    private void retriveCurrentScore(JSONObject user) throws JSONException {
+    public void retriveCurrentScore(JSONObject user) throws JSONException {
         JSONObject jsonScoreObj = user.optJSONObject("scores");
+        if(jsonScoreObj!=null){
         JSONArray dataArray = jsonScoreObj.getJSONArray("data");
         JSONObject objectIn = dataArray.getJSONObject(0);
         String getScore = objectIn.optString("score");
         Log.e("Userscore", getScore);
         ((quizFloorApplication) getApplicationContext()).setFbScore(Integer.parseInt(getScore));
+        }
+    }
 
+
+
+    public void friendScoereList(){
+        GraphRequest request = GraphRequest.newGraphPathRequest(
+                AccessToken.getCurrentAccessToken(),
+                "/835011139946449/scores",
+                new GraphRequest.Callback() {
+                    @Override
+                    public void onCompleted(GraphResponse response) {
+                        // Insert your code here
+                        JSONObject graphObject = response.getJSONObject();
+                        try {
+                            JSONArray dataArray = graphObject.getJSONArray("data");
+                            if (dataArray.length() > 0) {
+
+                                List<JSONObject> sbList = new ArrayList<JSONObject>();
+                                // Ensure the user has at least one friend ...
+                                for (int i = 0; i < dataArray.length(); i++) {
+                                    sbList.add(dataArray.optJSONObject(i));
+                                }
+                                ((quizFloorApplication) getApplicationContext()).setFriendScoreBoardList(sbList);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+
+        request.executeAsync();
 
     }
 
@@ -457,6 +463,7 @@ public class loginWithFacebook extends FragmentActivity implements Serializable 
         }
         return false;
     }
+
 
 }
 
