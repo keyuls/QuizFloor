@@ -119,6 +119,7 @@ public class NavigationDrawerFragment extends Fragment {
                         "Rate this app",
                         "Share",
                         /*"Report bug or Feedback",*/
+                        "Scoreboard",
                         getString(R.string.title_section5),
                 }){
                                        @Override
@@ -245,6 +246,9 @@ public class NavigationDrawerFragment extends Fragment {
                 startActivity(Intent.createChooser(intent, "Share"));
                 break;
             case 5:
+                Intent intentb = new Intent(this.getActivity(), scoreBoardDisplay.class);
+                startActivity(intentb);
+                break;
             case 6:
                 LoginManager.getInstance().logOut();
                 Intent logout = new Intent(this.getActivity(), loginWithFacebook.class);
