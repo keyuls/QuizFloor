@@ -29,4 +29,6 @@
     <string name="title_activity_show_sub_catagory">ShowSubCatagory</string>
     <string name="title_activity_sub_catagory_list_adapter">subCatagoryListAdapter</string>
     <string name="title_activity_score_board_display">scoreBoardDisplay</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-1379428137301106/6911240275</string>
 </resources>

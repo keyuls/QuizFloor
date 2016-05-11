@@ -23,6 +23,9 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.widget.ProfilePictureView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class selectCatagory extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 
@@ -41,6 +44,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_nav);
+        //setContentView(R.layout.MyLayoutContainingBannerAd);
         setTitle("Welcome");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent intent =  getIntent();
@@ -56,6 +60,8 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+
     }
 
 
@@ -195,6 +201,10 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
             userImage.setProfileId(id);
             textView.setText(name);
             scoreText.setText(String.valueOf( CurrentScore ));
+
+            AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
             return rootView;
         }
 

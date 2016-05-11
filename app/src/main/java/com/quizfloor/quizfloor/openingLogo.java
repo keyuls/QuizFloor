@@ -49,7 +49,8 @@ public class openingLogo extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         //Register receivers for push notifications
-        registerReceivers();
+
+          registerReceivers();
 
         //Create and start push manager
         PushManager pushManager = PushManager.getInstance(this);

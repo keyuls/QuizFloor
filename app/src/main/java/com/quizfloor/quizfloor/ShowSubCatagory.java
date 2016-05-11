@@ -18,6 +18,8 @@ import android.widget.GridView;
 import android.widget.ListView;
 
 import com.facebook.share.model.GameRequestContent;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
@@ -41,6 +43,10 @@ public class ShowSubCatagory extends ActionBarActivity {
         setContentView(R.layout.activity_show_sub_catagory);
 
         setTitle(((quizFloorApplication) getApplicationContext()).getSelectedCatagory());
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         subCatListView = (ListView)findViewById(R.id.subCatListView);
 
         subCatObj=((quizFloorApplication)getApplicationContext()).getSubCatagoryObj();

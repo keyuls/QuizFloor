@@ -34,6 +34,8 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.share.model.GameRequestContent;
 import com.facebook.share.widget.GameRequestDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.FindCallback;
 import com.parse.FunctionCallback;
 import com.parse.Parse;
@@ -93,7 +95,9 @@ public class showQuestion extends ActionBarActivity {
         op4 = (Button)findViewById(R.id.op4Button);
         op5 = (Button)findViewById(R.id.op5Button);
 
-
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
@@ -340,7 +344,7 @@ public class showQuestion extends ActionBarActivity {
                 public void run() {
                     askForChallengeFriends();
                 }
-            }, 3000);
+            }, 1500);
         }
 
 
@@ -515,7 +519,7 @@ public class showQuestion extends ActionBarActivity {
                             public void run() {
                                  askForRating();
                             }
-                        }, 3000);
+                        }, 1500);
                     }
                 });
         // create alert dialog
