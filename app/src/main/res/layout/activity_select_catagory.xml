@@ -88,7 +88,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exam Topics"
+        android:text="Exam Tests"
         android:id="@+id/startQuiz"
         android:background="#8D6E63"
         android:onClick="startLoading"
@@ -110,6 +110,19 @@
         android:padding="16dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="54dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exam Videos"
+        android:id="@+id/WatchVideo"
+        android:background="#8D6E63"
+        android:onClick="goToVideo"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="174dp"
         android:layout_centerHorizontal="true"/>
 
     <com.google.android.gms.ads.AdView

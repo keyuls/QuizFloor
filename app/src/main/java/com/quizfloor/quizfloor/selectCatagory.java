@@ -8,19 +8,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.login.widget.ProfilePictureView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -143,6 +138,14 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         Intent intent = new Intent(this, scoreBoardDisplay.class);
         startActivity(intent);
     }
+
+    public void goToVideo (View view)
+    {
+        ((quizFloorApplication)getApplicationContext()).setVideoCatMode(true);
+        Intent vintent = new Intent(this, videoCatDisplayList.class);
+        startActivity(vintent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

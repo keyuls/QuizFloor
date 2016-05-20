@@ -49,8 +49,8 @@ public class openingLogo extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         //Register receivers for push notifications
-
-          registerReceivers();
+//
+     /*   registerReceivers();
 
         //Create and start push manager
         PushManager pushManager = PushManager.getInstance(this);
@@ -68,7 +68,7 @@ public class openingLogo extends ActionBarActivity {
         pushManager.registerForPushNotifications();
 
         checkMessage(getIntent());
-
+*/
 
 
         setContentView(R.layout.activity_opening_logo);
@@ -143,7 +143,18 @@ public class openingLogo extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+   /* @Override
+    protected void onPause() {
+        super.onPause();
 
+        unregisterReceiver(mReceiver);
+    }
+    @Override
+    protected void onStop()
+    {
+        unregisterReceiver(mReceiver);
+        super.onStop();
+    }*/
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed

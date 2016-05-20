@@ -63,7 +63,7 @@ public class ShowSubCatagory extends ActionBarActivity {
 
         subCatObj= ((quizFloorApplication) getApplicationContext()).getSubCatagoryObj();
         final subCatagoryListAdapter cAdapter = new subCatagoryListAdapter(this,subCatObj);
-       subCatListView.setAdapter(cAdapter);
+        subCatListView.setAdapter(cAdapter);
 
         subCatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

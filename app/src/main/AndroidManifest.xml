@@ -67,11 +67,11 @@
         <activity
             android:name=".selectCatagory"
             android:label="@string/title_activity_select_catagory"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".showQuestion"
             android:label="@string/title_activity_show_question"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".submitQuestion"
             android:label="@string/title_activity_submit_question"
@@ -123,6 +123,11 @@
                 android:value="com.quizfloor.quizfloor.categoryListActivity" />
         </activity>
 
+
+        <activity
+            android:name=".videoCatDisplayList"
+            android:label="@string/title_activity_select_catagory"
+            android:screenOrientation="portrait" />
         <!--
         <activity
             android:name=".subCatagoryListAdapter"
@@ -141,7 +146,7 @@
         -->
 
 
-        <!--                   IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+        <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
         <!--
      <category android:name="com.quizfloor.quizfloor" />
          </intent-filter>
@@ -184,7 +189,7 @@
         </service>
         <service
             android:name="com.pushwoosh.GCMRegistrationService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <meta-data
             android:name="com.parse.APPLICATION_ID"
@@ -202,13 +207,16 @@
         <activity
             android:name=".scoreBoardDisplay"
             android:label="@string/title_activity_score_board_display"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".selectCatagory">
+            android:parentActivityName=".selectCatagory"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.quizfloor.quizfloor.selectCatagory" />
         </activity>
-
+        <activity
+            android:name=".combineVideos"
+            android:label="@string/title_activity_combine_videos"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

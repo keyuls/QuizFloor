@@ -31,6 +31,49 @@ public class quizFloorApplication extends Application {
     private String challengerName;
     private String selectedSubCatagory;
     String challengeObjId;
+    List<String> videoCatList;
+    List<String> videoSubCatList;
+    List<String> videoWatchList;
+    private boolean videoCatMode=false;
+
+    public List<String> getVideoWatchList() {
+        return videoWatchList;
+    }
+
+    public void setVideoWatchList(List<String> videoWatchList) {
+        this.videoWatchList = videoWatchList;
+    }
+
+
+    public boolean isVideoCatMode() {
+        return videoCatMode;
+    }
+
+    public void setVideoCatMode(boolean videoCatMode) {
+        this.videoCatMode = videoCatMode;
+    }
+
+
+
+
+    public List<String> getVideoCatList() {
+        return videoCatList;
+    }
+
+    public quizFloorApplication setVideoCatList(List<String> videoCatList) {
+        this.videoCatList = videoCatList;
+        return null;
+    }
+
+    public List<String> getVideoSubCatList() {
+        return videoSubCatList;
+    }
+
+    public void setVideoSubCatList(List<String> videoSubCatList) {
+        this.videoSubCatList = videoSubCatList;
+    }
+
+
 
     public List<JSONObject> getFriendScoreBoardList() {
         return friendScoreBoardList;
