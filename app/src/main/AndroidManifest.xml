@@ -216,7 +216,11 @@
         <activity
             android:name=".combineVideos"
             android:label="@string/title_activity_combine_videos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".videoCatDisplayList">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.quizfloor.quizfloor.videoCatDisplayList" />
+            </activity>
     </application>
 
 </manifest>

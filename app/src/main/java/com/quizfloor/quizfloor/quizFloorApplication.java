@@ -35,6 +35,15 @@ public class quizFloorApplication extends Application {
     List<String> videoSubCatList;
     List<String> videoWatchList;
     private boolean videoCatMode=false;
+    private String VIDEO_ID;
+
+    public String getVIDEO_ID() {
+        return VIDEO_ID;
+    }
+
+    public void setVIDEO_ID(String VIDEO_ID) {
+        this.VIDEO_ID = VIDEO_ID;
+    }
 
     public List<String> getVideoWatchList() {
         return videoWatchList;
@@ -43,7 +52,6 @@ public class quizFloorApplication extends Application {
     public void setVideoWatchList(List<String> videoWatchList) {
         this.videoWatchList = videoWatchList;
     }
-
 
     public boolean isVideoCatMode() {
         return videoCatMode;
