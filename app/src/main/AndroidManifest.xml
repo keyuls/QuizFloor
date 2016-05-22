@@ -127,7 +127,12 @@
         <activity
             android:name=".videoCatDisplayList"
             android:label="@string/title_activity_select_catagory"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".selectCatagory">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.quizfloor.quizfloor.selectCatagory" />
+        </activity>
         <!--
         <activity
             android:name=".subCatagoryListAdapter"

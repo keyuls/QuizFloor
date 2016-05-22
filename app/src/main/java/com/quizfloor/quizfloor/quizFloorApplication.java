@@ -7,7 +7,6 @@ import com.parse.ParseObject;
 
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -31,9 +30,9 @@ public class quizFloorApplication extends Application {
     private String challengerName;
     private String selectedSubCatagory;
     String challengeObjId;
-    List<String> videoCatList;
-    List<String> videoSubCatList;
-    List<String> videoWatchList;
+    List<videoItems> videoCatList;
+    List<videoItems> videoSubCatList;
+    List<videoItems> videoWatchList;
     private boolean videoCatMode=false;
     private String VIDEO_ID;
 
@@ -45,11 +44,11 @@ public class quizFloorApplication extends Application {
         this.VIDEO_ID = VIDEO_ID;
     }
 
-    public List<String> getVideoWatchList() {
+    public List<videoItems> getVideoWatchList() {
         return videoWatchList;
     }
 
-    public void setVideoWatchList(List<String> videoWatchList) {
+    public void setVideoWatchList(List<videoItems> videoWatchList) {
         this.videoWatchList = videoWatchList;
     }
 
@@ -64,20 +63,20 @@ public class quizFloorApplication extends Application {
 
 
 
-    public List<String> getVideoCatList() {
+    public List<videoItems> getVideoCatList() {
         return videoCatList;
     }
 
-    public quizFloorApplication setVideoCatList(List<String> videoCatList) {
+    public quizFloorApplication setVideoCatList(List<videoItems> videoCatList) {
         this.videoCatList = videoCatList;
         return null;
     }
 
-    public List<String> getVideoSubCatList() {
+    public List<videoItems> getVideoSubCatList() {
         return videoSubCatList;
     }
 
-    public void setVideoSubCatList(List<String> videoSubCatList) {
+    public void setVideoSubCatList(List<videoItems> videoSubCatList) {
         this.videoSubCatList = videoSubCatList;
     }
 
