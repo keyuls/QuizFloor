@@ -114,6 +114,7 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.title_section1),
+                        "Watch Videos",
                         getString(R.string.title_section2),
                         getString(R.string.title_section3),
                         "Rate this app",
@@ -218,38 +219,37 @@ public class NavigationDrawerFragment extends Fragment {
         mCurrentSelectedPosition = position;
         switch (position) {
             case 1:
+                Intent vintent = new Intent(this.getActivity(), videoCatDisplayList.class);
+                startActivity(vintent);
+                break;
+            case 2:
                  Intent catagory = new Intent(this.getActivity(), categoryListActivity.class);
                  startActivity(catagory);
                 break;
-            case 2:
+            case 3:
                 Intent challenges = new Intent(this.getActivity(), showChallenges.class);
                 startActivity(challenges);
                 break;
-            //case 3:
-            //    Intent submit = new Intent(this.getActivity(), submitQuestion.class);
-              //  startActivity(submit);
-               // break;
-            case 3:
+            case 4:
                 Uri uri = Uri.parse("market://details?id=" +this.getActivity().getPackageName());
                 Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
                 try {
                     startActivity(myAppLinkToMarket);
                 } catch (ActivityNotFoundException e) {
-                  //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
                     Log.e("sidemenu", "error");
                 }
                  break;
-            case 4:
+            case 5:
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, "Try out Quizfloor. It is the best app for exam preparation. http://bit.ly/quizfloor");
                 startActivity(Intent.createChooser(intent, "Share"));
                 break;
-            case 5:
+            case 6:
                 Intent intentb = new Intent(this.getActivity(), scoreBoardDisplay.class);
                 startActivity(intentb);
                 break;
-            case 6:
+            case 7:
                 LoginManager.getInstance().logOut();
                 Intent logout = new Intent(this.getActivity(), loginWithFacebook.class);
                 startActivity(logout);

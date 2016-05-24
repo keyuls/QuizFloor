@@ -35,6 +35,16 @@ public class quizFloorApplication extends Application {
     List<videoItems> videoWatchList;
     private boolean videoCatMode=false;
     private String VIDEO_ID;
+    String subCatName;
+
+    public String getSubCatName() {
+        return subCatName;
+    }
+
+    public void setSubCatName(String subCatName) {
+        this.subCatName = subCatName;
+    }
+
 
     public String getVIDEO_ID() {
         return VIDEO_ID;
