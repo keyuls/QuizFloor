@@ -3,6 +3,7 @@ package com.quizfloor.quizfloor;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
@@ -16,6 +17,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -127,6 +129,14 @@ public class NavigationDrawerFragment extends Fragment {
                                        public View getView(int position, View convertView, ViewGroup parent) {
                                            TextView textView = (TextView) super.getView(position, convertView, parent);
                                            textView.setTextColor(Color.BLACK);
+                                           textView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                                           textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+
+                                           float scale = getResources().getDisplayMetrics().density;
+                                           int dpAsPixelsLR = (int) (16*scale + 0.5f);
+                                           int dpAsPixelsT = (int) (8*scale + 0.5f);
+
+                                           textView.setPadding(dpAsPixelsLR, dpAsPixelsT, dpAsPixelsLR, 0);
                                            return textView;
                                        }
 
