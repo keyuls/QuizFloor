@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -12,12 +13,15 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.parse.ParseObject;
 
 import java.util.List;
 
 public class scoreBoardDisplay extends ActionBarActivity {
-
+    InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,21 @@ public class scoreBoardDisplay extends ActionBarActivity {
       //  setSupportActionBar(toolbar);
       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
       //  getSupportActionBar().setTitle("Score board");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                goToHome();
+            }
+        });
+
+        requestNewInterstitial();
+
+
         ListView scoreListView = (ListView)findViewById(R.id.scoreListView);
         final friendScoreBoardAdapter cAdapter = new friendScoreBoardAdapter(this,((quizFloorApplication)getApplicationContext()).getFriendScoreBoardList());
         scoreListView.setAdapter((ListAdapter) cAdapter);
@@ -45,4 +64,27 @@ public class scoreBoardDisplay extends ActionBarActivity {
         });
     }
 
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mInterstitialAd.isLoaded()){
+            mInterstitialAd.show();
+        }
+        else{
+            goToHome();
+        }
+    }
+
+    public void goToHome(){
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        NavUtils.navigateUpTo(this, upIntent);
+        return;
+
+    }
 }

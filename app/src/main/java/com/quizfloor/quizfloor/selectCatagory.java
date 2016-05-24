@@ -1,13 +1,18 @@
 package com.quizfloor.quizfloor;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,8 +23,10 @@ import android.widget.TextView;
 import com.facebook.CallbackManager;
 import com.facebook.login.widget.ProfilePictureView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class selectCatagory extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -34,6 +41,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     static int CurrentScore=0;
 //    GameRequestDialog requestDialog;
     CallbackManager callbackManager;
+    InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,21 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         //setContentView(R.layout.MyLayoutContainingBannerAd);
         setTitle("Welcome");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                exitApp();
+            }
+        });
+
+        requestNewInterstitial();
+
+
         Intent intent =  getIntent();
         name = ((quizFloorApplication)getApplicationContext()).getUserName();
         id =   ((quizFloorApplication)getApplicationContext()).getUserId();
@@ -228,10 +251,66 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed
+
+        askForRating();
+
+    }
+
+    public void exitApp(){
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
         return;
+    }
+
+    public void askForRating(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
+
+        // set title
+        alertDialogBuilder.setTitle("Exit App");
+
+        // set dialog message
+        alertDialogBuilder
+                .setMessage("Would you like to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if(mInterstitialAd.isLoaded()){
+                            mInterstitialAd.show();
+                        }
+                        else {
+                            exitApp();
+                        }
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("Rate App", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+                        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                        try {
+                            startActivity(myAppLinkToMarket);
+                        } catch (ActivityNotFoundException e) {
+                            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+                            Log.e("sidemenu", "error");
+                        }
+
+
+                    }
+                });
+        // create alert dialog
+
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
     }
 }

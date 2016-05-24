@@ -12,10 +12,13 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,6 +33,11 @@ public class categoryListActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
         setTitle("Catagories");
+
+        AdView mAdView = (AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         categoryGridView = (GridView)findViewById(R.id.CatgridView);
         catagoryObj=((quizFloorApplication)getApplicationContext()).getCatagoryObj();
         if((catagoryObj.size())<1) {

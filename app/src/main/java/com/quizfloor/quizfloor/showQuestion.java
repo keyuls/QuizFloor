@@ -34,8 +34,10 @@ import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.share.model.GameRequestContent;
 import com.facebook.share.widget.GameRequestDialog;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.parse.FindCallback;
 import com.parse.FunctionCallback;
 import com.parse.Parse;
@@ -73,6 +75,7 @@ public class showQuestion extends ActionBarActivity {
     int percent;
     LinearLayout lyDecison;
     RelativeLayout lyChallenger;
+    InterstitialAd mInterstitialAd;
     public String getPercentValue() {
         return percentValue;
     }
@@ -98,6 +101,19 @@ public class showQuestion extends ActionBarActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                startNewGame();
+            }
+        });
+
+        requestNewInterstitial();
 
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
@@ -309,7 +325,7 @@ public class showQuestion extends ActionBarActivity {
         Bundle params = new Bundle();
 
         //-call to update fb score card--//
-        params.putString("score", String.valueOf( updatedScore));
+        params.putString("score", String.valueOf(updatedScore));
 /* make the API call */
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
@@ -353,7 +369,7 @@ public class showQuestion extends ActionBarActivity {
 
     /*Comapre Score with opponent*/
     private void compareScore() {
-       int challengerScore = Integer.parseInt(((quizFloorApplication)getApplicationContext()).getChallengerScore());
+       int challengerScore = Integer.parseInt(((quizFloorApplication) getApplicationContext()).getChallengerScore());
         if(percent<challengerScore)
         {
             decesionVal.setText("You Lose");
@@ -409,7 +425,7 @@ public class showQuestion extends ActionBarActivity {
                 if (e == null) {
                     Log.d("user deleted", updation);
                 }
-           }
+            }
         });
 
     }
@@ -479,7 +495,13 @@ public class showQuestion extends ActionBarActivity {
                         // if this button is clicked, just close
                         // the dialog box and do nothing
                         dialog.cancel();
-                        startNewGame();
+
+                        if(mInterstitialAd.isLoaded()){
+                            mInterstitialAd.show();
+                        }
+                        else {
+                            startNewGame();
+                        }
                     }
                 });
         // create alert dialog
@@ -517,7 +539,7 @@ public class showQuestion extends ActionBarActivity {
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                 askForRating();
+                                askForRating();
                             }
                         }, 1500);
                     }
@@ -527,5 +549,12 @@ public class showQuestion extends ActionBarActivity {
         AlertDialog dialog = alertDialogBuilder.create();
         dialog.show();
 
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
     }
 }

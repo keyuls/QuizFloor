@@ -1,6 +1,7 @@
 package com.quizfloor.quizfloor;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseObject;
@@ -27,6 +31,7 @@ public class showChallenges extends ActionBarActivity {
     List<ParseObject> challengeObj;
     HashMap<String,Object> getQue = new HashMap<String, Object>();
     TextView challengeMsg;
+    InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,19 @@ public class showChallenges extends ActionBarActivity {
         setContentView(R.layout.activity_show_challenges);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Recent Challenges");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                goToHome();
+            }
+        });
+
+        requestNewInterstitial();
+
         challengesListView = (ListView)findViewById(R.id.challengesListView);
 
         challengeObj=((quizFloorApplication)getApplicationContext()).getChallengeObj();
@@ -133,13 +151,26 @@ public class showChallenges extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mInterstitialAd.loadAd(adRequest);
+    }
     @Override
     public void onBackPressed() {
         //Display alert message when back button has been pressed
-        Intent startMain = new Intent(Intent.ACTION_MAIN);
-        startMain.addCategory(Intent.CATEGORY_HOME);
-        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(startMain);
+        if(mInterstitialAd.isLoaded()){
+            mInterstitialAd.show();
+        }
+        else{
+            goToHome();
+        }
+    }
+    public void goToHome(){
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
+        NavUtils.navigateUpTo(this, upIntent);
         return;
+
     }
 }
