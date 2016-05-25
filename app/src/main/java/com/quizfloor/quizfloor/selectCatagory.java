@@ -27,6 +27,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 public class selectCatagory extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -50,7 +51,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         //setContentView(R.layout.MyLayoutContainingBannerAd);
         setTitle("Welcome");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1379428137301106~5434507071");
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
 
@@ -58,7 +59,7 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                exitApp();
+                redirectToStore();
             }
         });
 
@@ -269,36 +270,28 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                 this);
 
         // set title
-        alertDialogBuilder.setTitle("Exit App");
+        alertDialogBuilder.setTitle("Exit");
 
         // set dialog message
         alertDialogBuilder
-                .setMessage("Would you like to exit?")
+                .setMessage("Would you like to rate app ?")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        if(mInterstitialAd.isLoaded()){
-                            mInterstitialAd.show();
-                        }
-                        else {
+
                             exitApp();
-                        }
                         dialog.cancel();
                     }
                 })
-                .setNegativeButton("Rate App", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Rate App", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
-                        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                        try {
-                            startActivity(myAppLinkToMarket);
-                        } catch (ActivityNotFoundException e) {
-                            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
-                            Log.e("sidemenu", "error");
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+
+                                redirectToStore();
                         }
-
-
                     }
                 });
         // create alert dialog
@@ -311,5 +304,16 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
         mInterstitialAd.loadAd(adRequest);
+    }
+
+    public  void redirectToStore(){
+        Uri uri = Uri.parse("market://details?id=" + getApplicationContext().getPackageName());
+        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            startActivity(myAppLinkToMarket);
+        } catch (ActivityNotFoundException e) {
+            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
+            Log.e("sidemenu", "error");
+        }
     }
 }

@@ -13,13 +13,13 @@
         android:background="#ffffff"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="4dp"
 
  />
     <com.google.android.gms.ads.NativeExpressAdView
         android:id="@+id/adViewN"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         ads:adUnitId="ca-app-pub-1379428137301106/7916953073"
         ads:adSize="320x150"
         android:layout_below="@+id/subCatListView"
