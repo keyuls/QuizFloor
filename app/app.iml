@@ -92,7 +92,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-invites/9.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.firebase/firebase-messaging/9.0.0/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.pushwoosh/pushwoosh/4.1.2/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.pushwoosh/pushwoosh/4.1.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
@@ -121,7 +121,7 @@
     <orderEntry type="library" exported="" name="firebase-common-9.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-core-9.0.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.0" level="project" />
-    <orderEntry type="library" exported="" name="pushwoosh-4.1.2" level="project" />
+    <orderEntry type="library" exported="" name="pushwoosh-4.1.6" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.0.0" level="project" />
     <orderEntry type="library" exported="" name="YouTubeAndroidPlayerApi" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.0.0" level="project" />

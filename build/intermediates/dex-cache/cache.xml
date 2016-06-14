@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.pushwoosh\pushwoosh\4.1.3\jars\classes.jar"
+        jar="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\exploded-aar\com.pushwoosh\pushwoosh\4.1.6\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="7754221daa3bd6b142ae7b19c62216cc85a72b08">
-        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-6933da8af6053a45ec8d0b37e100f7d3f301c317.jar" />
+        sha1="049acf4d33d5505d80a03f48689f74efba0e9a5a">
+        <dex dex="C:\Users\keyul\Downloads\QuizFloor\app\build\intermediates\pre-dexed\debug\classes-ef09fa568b59f4e6ead088b9e8c70ea8a3a215f3.jar" />
     </item>
 
 </items>
