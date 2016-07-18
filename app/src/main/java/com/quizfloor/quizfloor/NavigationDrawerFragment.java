@@ -257,7 +257,7 @@ public class NavigationDrawerFragment extends Fragment {
             case 5:
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Try out Quizfloor. It is the best app for exam preparation. http://bit.ly/quizfloor");
+                intent.putExtra(Intent.EXTRA_TEXT, "Try out Quizfloor. It is the best app for entrance exam preparation. http://bit.ly/quizfloor");
                 startActivity(Intent.createChooser(intent, "Share"));
                 break;
             case 6:
