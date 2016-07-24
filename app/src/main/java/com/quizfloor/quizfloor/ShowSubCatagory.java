@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,16 +55,27 @@ public class ShowSubCatagory extends ActionBarActivity {
       /*  if((subCatObj.size())<1) {
             getSubCat();
         }*/
-        showSubCatList();
+     //   showSubCatList();
 
 
     }
 
+
+
+
     private void showSubCatList() {
 
         subCatObj= ((quizFloorApplication) getApplicationContext()).getSubCatagoryObj();
+
+    /*    int currentSize=subCatObj.size();
+        DisplayMetrics metrics = new DisplayMetrics ();
+        this.getWindowManager().getDefaultDisplay().getMetrics (metrics);
+// Set layout based on screen size and qty of items
+        subCatListView.getLayoutParams().height = (metrics.heightPixels ) / currentSize ;
+*/
         final subCatagoryListAdapter cAdapter = new subCatagoryListAdapter(this,subCatObj);
         subCatListView.setAdapter(cAdapter);
+
 
         subCatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -73,7 +85,6 @@ public class ShowSubCatagory extends ActionBarActivity {
                 String selectedSubCatagory = (String) clickedUser.get("DbName");
                 ((quizFloorApplication) getApplicationContext()).setSelectedSubCatagory(selectedSubCatagory);
                 showNotice();
-
             }
         });
     }

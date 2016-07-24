@@ -1,6 +1,7 @@
 package com.quizfloor.quizfloor;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,11 +38,15 @@ public class catagoryListAdapter  extends ArrayAdapter<ParseObject> {
         View listItemView = inflater.inflate(R.layout.catagory_adapter, parent, false);
         TextView nameView = (TextView) listItemView.findViewById(R.id.txtCatName);
 
-
+        if((position+1)%3==1)
+            nameView.setBackgroundColor(Color.parseColor("#FB8C00"));
+        else if((position+1)%3==2)
+            nameView.setBackgroundColor(Color.parseColor("#515E73"));
+        else if((position+1)%3==0)
+            nameView.setBackgroundColor(Color.parseColor("#EE454C"));
         ParseObject currentUser = catListObj.get(position);
         nameView.setText((String)currentUser.get("DisplayName"));
-
-
+        nameView.setTextColor(Color.parseColor("#ffffff"));
 
         return listItemView;
     }

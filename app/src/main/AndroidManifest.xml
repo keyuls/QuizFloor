@@ -201,6 +201,10 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
+            android:name=".videoShowActivity"
+            android:label="@string/title_activity_combine_videos" />
+
+        <activity
             android:name="com.google.android.gms.ads.AdActivity"
             >
         </activity>

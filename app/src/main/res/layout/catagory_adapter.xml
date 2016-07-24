@@ -4,7 +4,7 @@
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="170dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:text="GRE"
         android:id="@+id/txtCatName"
@@ -15,9 +15,7 @@
         android:typeface="serif"
         android:textColor="#FFA000"
         android:background="#fff"
-        android:padding="16dp"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
-
     />
 </LinearLayout>
