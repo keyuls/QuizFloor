@@ -85,7 +85,6 @@ public class showQuestion extends ActionBarActivity {
         this.percentValue = percentValue;
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +113,6 @@ public class showQuestion extends ActionBarActivity {
                 startNewGame();
             }
         });
-
         requestNewInterstitial();
 
         FacebookSdk.sdkInitialize(this.getApplicationContext());
@@ -123,7 +121,6 @@ public class showQuestion extends ActionBarActivity {
         requestDialog.registerCallback(callbackManager, new FacebookCallback<GameRequestDialog.Result>() {
             public void onSuccess(GameRequestDialog.Result result) {
                 ((quizFloorApplication) getApplicationContext()).setReciverId(result.getRequestRecipients().get(0));
-
                 for(int i=0;i<result.getRequestRecipients().size();i++){
                     recivers.add(result.getRequestRecipients().get(i));
                 }
@@ -141,7 +138,6 @@ public class showQuestion extends ActionBarActivity {
         if(((quizFloorApplication)getApplicationContext()).isChallengeMode())
         {
             DisplayQue(((quizFloorApplication)getApplicationContext()).getQueList());
-
         }
         else {
             params.put("topic", ((quizFloorApplication)getApplicationContext()).getSelectedSubCatagory());
@@ -158,15 +154,13 @@ public class showQuestion extends ActionBarActivity {
             });
         }
     }
-
     //redirect to catagory
-    private void redirectToCat() {
+    public void redirectToCat() {
         Intent cintent = new Intent(this, categoryListActivity.class);
         startActivity(cintent);
     }
 
     public void updateDb(){
-
        params.put("recieverId", ((quizFloorApplication) getApplicationContext()).getReciverId());
         params.put("friendlist", recivers);
         params.put("score", getPercentValue());
@@ -180,8 +174,7 @@ public class showQuestion extends ActionBarActivity {
         });
     }
 
-    private void DisplayQue(List<ParseObject> scoreList) {
-
+    public void DisplayQue(List<ParseObject> scoreList) {
         if (i < scoreList.size()) {
             String question =(String)  scoreList.get(i).getString("question");
             String option1 = (String) scoreList.get(i).getString("Option1");
@@ -205,7 +198,6 @@ public class showQuestion extends ActionBarActivity {
 
                 op3.setText(option3);
             }
-
             if(option4.equals("-"))
             {
                 op4.setVisibility(View.GONE);
@@ -223,21 +215,11 @@ public class showQuestion extends ActionBarActivity {
                 op5.setText(option5);
             }
 
-
             op1.setBackgroundColor(Color.parseColor("#FFA000"));
             op2.setBackgroundColor(Color.parseColor("#FFA000"));
             op3.setBackgroundColor(Color.parseColor("#FFA000"));
             op4.setBackgroundColor(Color.parseColor("#FFA000"));
             op5.setBackgroundColor(Color.parseColor("#FFA000"));
-            /*New change for test git*/
-
-          /*  Log.d("que" + i, question);
-            Log.d("que1", option1);
-            Log.d("que2", option2);
-            Log.d("que3", option3);
-            Log.d("que4", option4);
-            Log.d("ans", answer);
-            */
             i++;
         }
         else
@@ -276,8 +258,7 @@ public class showQuestion extends ActionBarActivity {
         if (s.equals(answer))
         {
             v.setBackgroundColor(Color.parseColor("#4CAF50"));
-            Toast.makeText(getApplicationContext(),
-                    "Correct Answer", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Correct Answer", Toast.LENGTH_SHORT).show();
             correct++;
         }
         else
@@ -285,15 +266,12 @@ public class showQuestion extends ActionBarActivity {
             v.setBackgroundColor(Color.parseColor("#B71C1C"));
             Toast.makeText(getApplicationContext(),
                     "Incorrect Answer"+"\n"+"Correct Answer:" +answer , Toast.LENGTH_LONG).show();
-
             String buttonVal = "op" + answer.substring(answer.length() - 1)+"Button";
             int id = getResources().getIdentifier(buttonVal, "id", getPackageName());
             Button btOP = (Button)findViewById(id);
             btOP.setBackgroundColor(Color.parseColor("#4CAF50"));
             incorrect++;
         }
-
-
 
         final Handler myHandler = new Handler();
         myHandler.postDelayed(new Runnable() {
@@ -302,17 +280,14 @@ public class showQuestion extends ActionBarActivity {
                 DisplayQue(((quizFloorApplication) getApplicationContext()).getQueList());
             }
         }, 2500);
-
     }
-
     /*calculate Score and display */
     public void showResult(int cor,int incor)
     {
         setContentView(R.layout.result);
         setTitle("Result");
-         percent = (cor*100/i);
+        percent = (cor*100/i);
         setPercentValue(String.valueOf(percent));
-
 
         TextView correctVal =(TextView)findViewById(R.id.correctVal);
         TextView incorrectVal=(TextView)findViewById(R.id.incorrectVal);
@@ -325,10 +300,7 @@ public class showQuestion extends ActionBarActivity {
         int updatedScore = percent + ((quizFloorApplication) getApplicationContext()).getFbScore() ;
         ((quizFloorApplication) getApplicationContext()).setFbScore(updatedScore) ;
         Bundle params = new Bundle();
-
-        //-call to update fb score card--//
-        params.putString("score", String.valueOf(updatedScore));
-/* make the API call */
+        params.putString("score", String.valueOf(updatedScore));  //-call to update fb score card--//
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
                 "/me/scores",
@@ -336,23 +308,18 @@ public class showQuestion extends ActionBarActivity {
                 HttpMethod.POST,
                 new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
-            /* handle the result */
                     }
                 }
         ).executeAsync();
 
-
         if(((quizFloorApplication)getApplicationContext()).isChallengeMode()) {
-
             decesionVal= (TextView)findViewById(R.id.txtDecesion);
             challengerScoreVal= (TextView)findViewById(R.id.challengeScoreVal);
             challengerScoreTxt=(TextView)findViewById(R.id.txtChalScore);
             lyDecison=(LinearLayout)findViewById(R.id.lyDecesion);
             lyChallenger=(RelativeLayout)findViewById(R.id.lyChallenger);
-
             challengerScoreVal.setText(((quizFloorApplication)getApplicationContext()).getChallengerScore());
             challengerScoreTxt.setText(((quizFloorApplication)getApplicationContext()).getChallengerName());
-
             compareScore();
         }
         else{
@@ -365,9 +332,6 @@ public class showQuestion extends ActionBarActivity {
                 }
             }, 1500);
         }
-
-
-
     }
 
     /*Comapre Score with opponent*/
@@ -389,14 +353,12 @@ public class showQuestion extends ActionBarActivity {
         lyChallenger.setVisibility(View.VISIBLE);
         challengerScoreVal .setVisibility(View.VISIBLE);
         challengerScoreTxt.setVisibility(View.VISIBLE);
-
         deleteChallenge();
         // sendNotification()
     }
 
     /*Delete challenges after play by other user */
-    private void deleteChallenge() {
-
+    public void deleteChallenge() {
         String challengeObjId = ((quizFloorApplication)getApplicationContext()).getChallengeObjId();
             delCompChal.put("objId", challengeObjId);
             ParseCloud.callFunctionInBackground("DeletePlayedChallenge", delCompChal, new FunctionCallback<List<ParseObject>>() {
@@ -420,23 +382,96 @@ public class showQuestion extends ActionBarActivity {
         startActivity(qintent);
     }
 
-    private void deleteCurrentUser() {
+    public void deleteCurrentUser() {
         ParseCloud.callFunctionInBackground("deleteNotUsedChallenge", params, new FunctionCallback<String>() {
             @Override
             public void done(String updation, ParseException e) {
-
                 if (e == null) {
                     Log.d("user deleted", updation);
                 }
             }
         });
-
     }
 
     public void sendChallenge(View view) {
         GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build(); /*.setActionType(GameRequestContent.ActionType.SEND)*/
         requestDialog.show(content);
     }
+
+    public void askForRating() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Rate this App");
+        alertDialogBuilder
+                .setMessage("Would you like to rate this app?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Uri uri = Uri.parse("market://details?id=" +getApplicationContext().getPackageName() );
+                        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                        try {
+                            startActivity(myAppLinkToMarket);
+                        } catch (ActivityNotFoundException e) {
+                        }
+                    }
+                })
+                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        if (mInterstitialAd.isLoaded()) {
+                            mInterstitialAd.show();
+                        } else {
+                            startNewGame();
+                        }
+                    }
+                });
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+    }
+
+    public void askForChallengeFriends() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Challenge Your Friends");
+        alertDialogBuilder
+                .setMessage("Would you like to challenge your friends?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build(); /*.setActionType(GameRequestContent.ActionType.SEND)*/
+                        requestDialog.show(content);
+
+                    }
+                })
+                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                askForRating();
+                            }
+                        }, 1500);
+                    }
+                });
+        AlertDialog dialog = alertDialogBuilder.create();
+        dialog.show();
+    }
+
+    public void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mInterstitialAd.loadAd(adRequest);
+    }
+
+    public void shareOnFb(){
+       ShareDialog  shareDialog = new ShareDialog(this);
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentTitle(" Challenge: Play now & Beat my score")
+                        .setContentDescription("My score in "+((quizFloorApplication)getApplicationContext()).getSelectedCatagory()+" is  " +percentValue)
+                        .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.quizfloor.quizfloor"))
+                .build();
+        shareDialog.show(content);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //getMenuInflater().inflate(R.menu.menu_show_question, menu);
@@ -460,112 +495,10 @@ public class showQuestion extends ActionBarActivity {
 
     @Override
     public void onBackPressed() {
-
-        //Display alert message when back button has been pressed
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
         return;
-    }
-
-    public void askForRating() {
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title
-        alertDialogBuilder.setTitle("Rate this App");
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Would you like to rate this app?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Uri uri = Uri.parse("market://details?id=" +getApplicationContext().getPackageName() );
-                        Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                        try {
-                            startActivity(myAppLinkToMarket);
-                        } catch (ActivityNotFoundException e) {
-                            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
-                            Log.e("sidemenu", "error");
-                        }
-                    }
-                })
-                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
-
-                        if (mInterstitialAd.isLoaded()) {
-                            mInterstitialAd.show();
-                        } else {
-                            startNewGame();
-                        }
-                    }
-                });
-        // create alert dialog
-
-        AlertDialog dialog = alertDialogBuilder.create();
-        dialog.show();
-
-    }
-
-    public void askForChallengeFriends() {
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title
-        alertDialogBuilder.setTitle("Challenge Your Friends");
-
-        // set dialog message
-        alertDialogBuilder
-                .setMessage("Would you like to challenge your friends?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        GameRequestContent content = new GameRequestContent.Builder().setMessage("play with me").setActionType(GameRequestContent.ActionType.TURN).build(); /*.setActionType(GameRequestContent.ActionType.SEND)*/
-                        requestDialog.show(content);
-
-                    }
-                })
-                .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
-                        dialog.cancel();
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                askForRating();
-                            }
-                        }, 1500);
-                    }
-                });
-        // create alert dialog
-
-        AlertDialog dialog = alertDialogBuilder.create();
-        dialog.show();
-
-    }
-
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-        mInterstitialAd.loadAd(adRequest);
-    }
-
-    public void shareOnFb(){
-       ShareDialog  shareDialog = new ShareDialog(this);
-        ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentTitle(" Challenge: Play now & Beat my score")
-                        .setContentDescription("My score in "+((quizFloorApplication)getApplicationContext()).getSelectedCatagory()+" is  " +percentValue)
-                        .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.quizfloor.quizfloor"))
-                .build();
-        shareDialog.show(content);
     }
 }

@@ -26,14 +26,9 @@ public class scoreBoardDisplay extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_board_display);
-      // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //  setSupportActionBar(toolbar);
-      // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-      //  getSupportActionBar().setTitle("Score board");
 
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
-
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
@@ -41,17 +36,14 @@ public class scoreBoardDisplay extends ActionBarActivity {
                 goToHome();
             }
         });
-
         requestNewInterstitial();
-
 
         ListView scoreListView = (ListView)findViewById(R.id.scoreListView);
         final friendScoreBoardAdapter cAdapter = new friendScoreBoardAdapter(this,((quizFloorApplication)getApplicationContext()).getFriendScoreBoardList());
-        scoreListView.setAdapter((ListAdapter) cAdapter);
+        scoreListView.setAdapter(cAdapter);
 
-      FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-       // fab.setVisibility(View.GONE);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -64,7 +56,7 @@ public class scoreBoardDisplay extends ActionBarActivity {
         });
     }
 
-    private void requestNewInterstitial() {
+    public void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
         mInterstitialAd.loadAd(adRequest);

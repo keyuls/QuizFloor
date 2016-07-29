@@ -23,7 +23,6 @@ public class friendScoreBoardAdapter extends ArrayAdapter<JSONObject> {
     private final Context context;
     private final List<JSONObject> catListObj;
 
-
     public friendScoreBoardAdapter(Context context, List<JSONObject> catListObj) {
         super(context, R.layout.score_board_adapter, catListObj);
         this.context = context;
@@ -32,8 +31,6 @@ public class friendScoreBoardAdapter extends ArrayAdapter<JSONObject> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-
-
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
@@ -57,8 +54,6 @@ public class friendScoreBoardAdapter extends ArrayAdapter<JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
         return listItemView;
     }
 }

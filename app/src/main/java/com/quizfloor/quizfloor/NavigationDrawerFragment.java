@@ -122,28 +122,22 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_section3),
                         "Rate this app",
                         "Share",
-                        /*"Report bug or Feedback",*/
                         "Scoreboard",
                         getString(R.string.title_section5),
                 }){
-                                       @Override
-                                       public View getView(int position, View convertView, ViewGroup parent) {
-                                           TextView textView = (TextView) super.getView(position, convertView, parent);
-                                           textView.setTextColor(Color.BLACK);
-                                           textView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                                           textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-
-                                           float scale = getResources().getDisplayMetrics().density;
-                                           int dpAsPixelsLR = (int) (16*scale + 0.5f);
-                                           int dpAsPixelsT = (int) (8*scale + 0.5f);
-
-                                           textView.setPadding(dpAsPixelsLR, dpAsPixelsT, dpAsPixelsLR, 0);
-                                           return textView;
-                                       }
-
-                                   }
-
-        );
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        TextView textView = (TextView) super.getView(position, convertView, parent);
+                        textView.setTextColor(Color.BLACK);
+                        textView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                        float scale = getResources().getDisplayMetrics().density;
+                        int dpAsPixelsLR = (int) (16*scale + 0.5f);
+                        int dpAsPixelsT = (int) (8*scale + 0.5f);
+                        textView.setPadding(dpAsPixelsLR, dpAsPixelsT, dpAsPixelsLR, 0);
+                        return textView;
+                        }
+        });
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }
@@ -282,8 +276,6 @@ public class NavigationDrawerFragment extends Fragment {
         }
     }
 
-
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -334,7 +326,6 @@ public class NavigationDrawerFragment extends Fragment {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

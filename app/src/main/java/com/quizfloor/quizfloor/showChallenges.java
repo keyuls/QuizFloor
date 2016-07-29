@@ -41,7 +41,6 @@ public class showChallenges extends ActionBarActivity {
         setTitle("Recent Challenges");
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-1379428137301106/2212156671");
-
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
@@ -67,7 +66,6 @@ public class showChallenges extends ActionBarActivity {
     }
 
     private void showChallengesList() {
-
         final challengeListAdapter cAdapter = new challengeListAdapter(this,challengeObj);
         challengesListView.setAdapter((ListAdapter) cAdapter);
         challengesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,24 +73,20 @@ public class showChallenges extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
-
                 ParseObject clickedUser = challengeObj.get(position);
                 String indexList = (String) clickedUser.get("IndexList");
                 String topic = (String) clickedUser.get("Topic");
                 String challengeObjId = (String) clickedUser.getObjectId();
-
                 ((quizFloorApplication) getApplicationContext()).setChallengerName((String) clickedUser.get("SenderName"));
                 ((quizFloorApplication) getApplicationContext()).setTopic(topic);
                 ((quizFloorApplication) getApplicationContext()).setIndexList(indexList);
                 ((quizFloorApplication) getApplicationContext()).setChallengeObjId(challengeObjId);
                 ((quizFloorApplication) getApplicationContext()).setChallengerScore((String) clickedUser.get("SenderScore"));
-
                 getQuestion();
 
             }
         });
     }
-
     /* get Question */
     public void getQuestion()
     {
@@ -102,8 +96,6 @@ public class showChallenges extends ActionBarActivity {
             @Override
             public void done(List<ParseObject> getChallengeQueObj, com.parse.ParseException e) {
                 if (e == null) {
-
-                    Log.d("challenge Que size", String.valueOf(getChallengeQueObj.size()));
                     ((quizFloorApplication) getApplicationContext()).setQueList(getChallengeQueObj);
                     ((quizFloorApplication) getApplicationContext()).setChallengeMode(true);
                     startLoading();
@@ -111,8 +103,6 @@ public class showChallenges extends ActionBarActivity {
             }
 
         });
-
-
     }
 
     public void startLoading()
@@ -126,7 +116,6 @@ public class showChallenges extends ActionBarActivity {
     {
         Intent qintent = new Intent(this, categoryListActivity.class);
         startActivity(qintent);
-
     }
 
     @Override
@@ -158,7 +147,6 @@ public class showChallenges extends ActionBarActivity {
     }
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         if(mInterstitialAd.isLoaded()){
             mInterstitialAd.show();
         }
@@ -170,6 +158,5 @@ public class showChallenges extends ActionBarActivity {
         Intent upIntent = NavUtils.getParentActivityIntent(this);
         NavUtils.navigateUpTo(this, upIntent);
         return;
-
     }
 }

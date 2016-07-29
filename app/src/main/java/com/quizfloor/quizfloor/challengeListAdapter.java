@@ -22,11 +22,8 @@ import java.util.List;
 
 
 public class challengeListAdapter extends ArrayAdapter<ParseObject> {
-
     private final Context context;
     private final List<ParseObject> challenegListObj;
-
-
 
     public challengeListAdapter(Context context, List<ParseObject> challenegListObj) {
         super(context, R.layout.challenge_adapter, challenegListObj);
@@ -34,25 +31,16 @@ public class challengeListAdapter extends ArrayAdapter<ParseObject> {
         this.challenegListObj = challenegListObj;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-
-
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-
         View listItemView = inflater.inflate(R.layout.challenge_adapter, parent, false);
         TextView nameView = (TextView) listItemView.findViewById(R.id.txtChallengeDetail);
         Button playButton = (Button) listItemView.findViewById(R.id.btnAccept);
-
         ParseObject currentUser = challenegListObj.get(position);
         nameView.setText(currentUser.get("SenderName")+" "+"Challenges" +" "+ currentUser.get("Topic")+" ");
         playButton.setText("Accept");
-
-
         return listItemView;
     }
-
-
 }

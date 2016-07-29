@@ -21,7 +21,6 @@ public class catagoryListAdapter  extends ArrayAdapter<ParseObject> {
     private final Context context;
     private final List<ParseObject> catListObj;
 
-
     public catagoryListAdapter(Context context, List<ParseObject> catListObj) {
         super(context, R.layout.challenge_adapter, catListObj);
         this.context = context;
@@ -30,11 +29,8 @@ public class catagoryListAdapter  extends ArrayAdapter<ParseObject> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-
-
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(context.LAYOUT_INFLATER_SERVICE);
-
         View listItemView = inflater.inflate(R.layout.catagory_adapter, parent, false);
         TextView nameView = (TextView) listItemView.findViewById(R.id.txtCatName);
 
@@ -50,5 +46,4 @@ public class catagoryListAdapter  extends ArrayAdapter<ParseObject> {
 
         return listItemView;
     }
-
 }
