@@ -33,7 +33,9 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.share.model.GameRequestContent;
+import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.GameRequestDialog;
+import com.facebook.share.widget.ShareDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -310,7 +312,7 @@ public class showQuestion extends ActionBarActivity {
         setTitle("Result");
          percent = (cor*100/i);
         setPercentValue(String.valueOf(percent));
-        Log.d("percent", String.valueOf(percent));
+
 
         TextView correctVal =(TextView)findViewById(R.id.correctVal);
         TextView incorrectVal=(TextView)findViewById(R.id.incorrectVal);
@@ -358,6 +360,7 @@ public class showQuestion extends ActionBarActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    shareOnFb();
                     askForChallengeFriends();
                 }
             }, 1500);
@@ -496,10 +499,9 @@ public class showQuestion extends ActionBarActivity {
                         // the dialog box and do nothing
                         dialog.cancel();
 
-                        if(mInterstitialAd.isLoaded()){
+                        if (mInterstitialAd.isLoaded()) {
                             mInterstitialAd.show();
-                        }
-                        else {
+                        } else {
                             startNewGame();
                         }
                     }
@@ -555,5 +557,15 @@ public class showQuestion extends ActionBarActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .build();
         mInterstitialAd.loadAd(adRequest);
+    }
+
+    public void shareOnFb(){
+       ShareDialog  shareDialog = new ShareDialog(this);
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentTitle(" Challenge: Play now & Beat my score")
+                        .setContentDescription("My score in "+((quizFloorApplication)getApplicationContext()).getSelectedCatagory()+" is  " +percentValue)
+                        .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.quizfloor.quizfloor"))
+                .build();
+        shareDialog.show(content);
     }
 }

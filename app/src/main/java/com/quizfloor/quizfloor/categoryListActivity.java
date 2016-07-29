@@ -3,10 +3,12 @@ package com.quizfloor.quizfloor;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
@@ -32,7 +34,7 @@ public class categoryListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_list);
-        setTitle("Catagories");
+        setTitle("Exams");
 
         AdView mAdView = (AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -58,7 +60,6 @@ public class categoryListActivity extends ActionBarActivity {
                     Log.d("catsize", String.valueOf(getCatObj.size()));
                     ((quizFloorApplication) getApplicationContext()).setCatagoryObj(getCatObj);
                     showCatagoryList();
-
                 }
             }
         });
@@ -66,7 +67,6 @@ public class categoryListActivity extends ActionBarActivity {
 
 
     private void showCatagoryList() {
-
         catagoryObj= ((quizFloorApplication) getApplicationContext()).getCatagoryObj();
         final catagoryListAdapter cAdapter = new catagoryListAdapter(this,catagoryObj);
         categoryGridView.setAdapter( cAdapter);

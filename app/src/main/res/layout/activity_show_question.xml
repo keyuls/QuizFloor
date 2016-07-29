@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="4dp"
     tools:context="com.quizfloor.quizfloor.showQuestion"
@@ -19,17 +17,8 @@
         android:layout_marginBottom="15dp"
         android:id="@+id/lyQuestionText"
         >
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
-        </com.google.android.gms.ads.AdView>
 
-       <TextView
+        <TextView
         android:text="But surely maxLines requires you to enter an arbitrary number; this isn't something that will work for every screen size and font size? I find it simpler to just wrap it with a ScrollView, meaning I don't have to add any further XML attributes or code (like setting the movement method). –" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -111,8 +100,7 @@
         android:layout_marginBottom="5dp"
         android:textSize="@dimen/abc_text_size_medium_material"
         android:textColor="#fff"/>
-
-    <Button
+        <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Option 5"
@@ -129,6 +117,20 @@
         android:textSize="@dimen/abc_text_size_medium_material"
         android:textColor="#fff"/>
     </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+    </com.google.android.gms.ads.AdView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

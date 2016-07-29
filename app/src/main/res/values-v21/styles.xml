@@ -13,6 +13,7 @@
         <item name="colorAccent">#FF8A80</item>
 
         <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#fff</item>
 
 
     </style>

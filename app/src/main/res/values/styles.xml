@@ -10,9 +10,7 @@
         <item name="colorPrimaryDark">#5D4037</item>
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">#FFA000</item>
-
-        <item name="android:textColorPrimary">#fff</item>
-
+        <item name="android:textColorPrimary">#FFFFFF</item>
 
         <!--    <item name="colorPrimaryLight">#DCEDC8</item>
             <item name="colorPrimaryText">#212121</item>

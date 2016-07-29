@@ -201,10 +201,16 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
+            android:name=".videoShowActivity"
+            android:label="@string/title_activity_combine_videos" />
+
+        <activity
             android:name="com.google.android.gms.ads.AdActivity"
             >
         </activity>
-
+        <provider android:authorities="com.facebook.app.FacebookContentProvider835011139946449"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
