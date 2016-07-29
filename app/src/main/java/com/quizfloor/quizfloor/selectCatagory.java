@@ -31,7 +31,6 @@ import com.google.android.gms.ads.MobileAds;
 
 public class selectCatagory extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -40,15 +39,12 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     static String  name;
     static String id;
     static int CurrentScore=0;
-//    GameRequestDialog requestDialog;
-    CallbackManager callbackManager;
     InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_nav);
-        //setContentView(R.layout.MyLayoutContainingBannerAd);
         setTitle("Welcome");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-1379428137301106~5434507071");
@@ -62,39 +58,21 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                 redirectToStore();
             }
         });
-
         requestNewInterstitial();
-
-
-        Intent intent =  getIntent();
         name = ((quizFloorApplication)getApplicationContext()).getUserName();
         id =   ((quizFloorApplication)getApplicationContext()).getUserId();
         CurrentScore =((quizFloorApplication) getApplicationContext()).getFbScore();
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
-
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
-
     }
 
-
-  /*  public void sendChallenge(View view) {
-
-        GameRequestContent content = new GameRequestContent.Builder().setMessage("Come play this level with me").build();
-        requestDialog.show(content);
-
-    }
-*/
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-
-
         switch (position) {
             case 0:
 
@@ -117,8 +95,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         switch (number) {
             case 1:
                 mTitle = "Hello";
-               // Intent submit = new Intent(this,submitQuestion.class);
-               // startActivity(submit);
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
@@ -144,8 +120,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle(mTitle);
     }
-
-
 
     public void startLoading(View view)
     {
@@ -186,7 +160,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
             return true;
         }
 
@@ -243,16 +216,8 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         }
     }
 
-  /*  @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-*/
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
-
         askForRating();
 
     }
@@ -268,17 +233,12 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
     public void askForRating(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 this);
-
-        // set title
         alertDialogBuilder.setTitle("Exit");
-
-        // set dialog message
         alertDialogBuilder
                 .setMessage("Would you like to rate app ?")
                 .setCancelable(false)
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                             exitApp();
                         dialog.cancel();
                     }
@@ -294,7 +254,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
                         }
                     }
                 });
-        // create alert dialog
 
         AlertDialog dialog = alertDialogBuilder.create();
         dialog.show();
@@ -312,8 +271,6 @@ public class selectCatagory extends ActionBarActivity implements NavigationDrawe
         try {
             startActivity(myAppLinkToMarket);
         } catch (ActivityNotFoundException e) {
-            //  Toast.makeText(this, " unable to find market app", Toast.LENGTH_LONG).show();
-            Log.e("sidemenu", "error");
         }
     }
 }

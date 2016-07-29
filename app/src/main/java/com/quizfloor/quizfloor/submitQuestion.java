@@ -76,7 +76,6 @@ public class submitQuestion extends ActionBarActivity {
         option4.setText("");
 
     }
-
     // add items into spinner dynamically
     public void addItemsOnSpinner2() {
 
@@ -95,7 +94,6 @@ public class submitQuestion extends ActionBarActivity {
 
     // add items into spinner dynamically
     public void addItemsOnSpinner1() {
-
         spinner1 = (Spinner) findViewById(R.id.CatagorySubmitVal);
         List<String> list = new ArrayList<String>();
         list.add("Java");
@@ -103,7 +101,6 @@ public class submitQuestion extends ActionBarActivity {
         list.add("GRE Maths");
         list.add("Java Script");
         list.add("DSA");
-
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -133,7 +130,6 @@ public class submitQuestion extends ActionBarActivity {
     }
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

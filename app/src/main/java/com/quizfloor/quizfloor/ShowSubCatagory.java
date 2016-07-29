@@ -52,31 +52,12 @@ public class ShowSubCatagory extends ActionBarActivity {
 
         subCatObj=((quizFloorApplication)getApplicationContext()).getSubCatagoryObj();
         getSubCat();
-      /*  if((subCatObj.size())<1) {
-            getSubCat();
-        }*/
-     //   showSubCatList();
-
-
     }
 
-
-
-
-    private void showSubCatList() {
-
+    public void showSubCatList() {
         subCatObj= ((quizFloorApplication) getApplicationContext()).getSubCatagoryObj();
-
-    /*    int currentSize=subCatObj.size();
-        DisplayMetrics metrics = new DisplayMetrics ();
-        this.getWindowManager().getDefaultDisplay().getMetrics (metrics);
-// Set layout based on screen size and qty of items
-        subCatListView.getLayoutParams().height = (metrics.heightPixels ) / currentSize ;
-*/
         final subCatagoryListAdapter cAdapter = new subCatagoryListAdapter(this,subCatObj);
         subCatListView.setAdapter(cAdapter);
-
-
         subCatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
@@ -89,14 +70,9 @@ public class ShowSubCatagory extends ActionBarActivity {
         });
     }
 
-    private void showNotice() {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title
+    public void showNotice() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Rules");
-
-        // set dialog message
         alertDialogBuilder
                 .setMessage("You are going into quiz mode now. Answer five questions to score well.")
                 .setCancelable(false)
@@ -107,43 +83,32 @@ public class ShowSubCatagory extends ActionBarActivity {
                 })
                 .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, just close
-                        // the dialog box and do nothing
                         dialog.cancel();
 
                     }
                 });
-        // create alert dialog
-
         AlertDialog dialog = alertDialogBuilder.create();
         dialog.show();
     }
 
-    private void goToShowQuestion() {
-
+    public void goToShowQuestion() {
         ((quizFloorApplication) getApplicationContext()).setChallengeMode(false);
         Intent qintent = new Intent(this, showQuestion.class);
         startActivity(qintent);
     }
 
-    private void getSubCat() {
-
+    public void getSubCat() {
         getSubCat.put("catName", ((quizFloorApplication) getApplicationContext()).getSelectedCatagory());
-
         ParseCloud.callFunctionInBackground("getSubCatagory", getSubCat, new FunctionCallback<List<ParseObject>>() {
             @Override
             public void done(List<ParseObject> getSubCatObj, com.parse.ParseException e) {
                 if (e == null) {
-
                     Log.d("subcatsize", String.valueOf(getSubCatObj.size()));
                     ((quizFloorApplication) getApplicationContext()).setSubCatagoryObj(getSubCatObj);
                     showSubCatList();
-
                 }
             }
         });
-
-
     }
 
     @Override
@@ -164,12 +129,10 @@ public class ShowSubCatagory extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
     @Override
     public void onBackPressed() {
-        //Display alert message when back button has been pressed
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
